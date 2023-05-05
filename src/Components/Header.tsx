@@ -5,10 +5,11 @@ export default function Header() {
 		backgroundColor: "grey",
 		textAlign: "center" as "center",
 		padding: "4em 0em"
+		
 	}
 	return (
-		<div style={headerstyle}>
+		<header style={headerstyle}>
 			<div>Welcome to my portfolio page</div>
-		</div>
+		</header>
 	);
 }

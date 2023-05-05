@@ -3,7 +3,6 @@ import React from "react";
 export default function Main() {
 
 	const mainstyles = {
-		height: "100vh",
 		// display: "grid"
 	}
 
@@ -21,6 +20,10 @@ export default function Main() {
 		<>
 			<div style={mainstyles}>
 				<div style={infoboxstlye}>{infotext}</div>
+				<div style={infoboxstlye}>{infotext2}</div>
+				<div style={infoboxstlye}>{infotext2}</div>
+				<div style={infoboxstlye}>{infotext2}</div>
+				<div style={infoboxstlye}>{infotext2}</div>
 				<div style={infoboxstlye}>{infotext2}</div>
 			</div>
 		</>

@@ -2,14 +2,26 @@ import React from "react";
 
 export default function Header() {
 	const headerstyle = {
-		backgroundColor: "grey",
 		textAlign: "center" as "center",
-		padding: "4em 0em"
-		
+		backgroundColor:"#eeeff1",
+		padding: "4em 0em",
+		display:"flex"
 	}
+	const headingtextstyle = {
+		// fontSize:"3em",
+		// fontWeight:"900",
+		// textTransform:"capitalize" as "capitalize",
+		// margin:"0 auto"
+	}
+	const headingtext = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque nihil labore eius ea totam dicta distinctio voluptatum magni ullam cupiditate reiciendis rem, quibusdam pariatur assumenda aspernatur laboriosam quod minus quidem."
+	const headingtextarr = headingtext.split(" ");
+	console.log(headingtextarr)
 	return (
-		<header style={headerstyle}>
-			<div>Welcome to my portfolio page</div>
-		</header>
+		<div style={headerstyle}>
+			<div style={headingtextstyle}>{headingtext}</div>
+			{/* {headingtextarr.map((word) => (
+				<div style={headingtextstyle}>{word}</div>
+			))} */}
+		</div>
 	);
 }

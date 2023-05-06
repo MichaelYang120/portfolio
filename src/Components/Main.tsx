@@ -4,6 +4,7 @@ export default function Main() {
 
 	const mainstyles = {
 		// display: "grid"
+		backgroundColor:"#eeeff1"
 	}
 
 	const infoboxstlye = {

@@ -10,8 +10,8 @@ function App() {
   return (
     <>
       <Title/>
-      <Header/>
       <ParallaxScroll/>
+      <Header/>
       <Main/>
       <Footer/>
     </>

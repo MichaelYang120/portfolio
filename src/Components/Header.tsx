@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 export default function Header() {
+	const [height, setHeight] = useState(0);
+	const ref = useRef<HTMLDivElement>(null);
+
 	const headerstyle = {
 		textAlign: "center" as "center",
 		backgroundColor:"red",
 		padding: "4em 0em",
-		display:"flex"
+		display:"flex",
+		position: "sticky" as "sticky",
+		top:"0"
 	}
 	const headingtextstyle = {
 		fontSize:"3em",
@@ -15,13 +20,23 @@ export default function Header() {
         backgroundColor:"red",
 
 	}
-	const headingtext = "test";
+
+	useEffect(() => {
+
+	}, []);
+
+	const headingtext = "testing";
+
 	return (
 		<div style={headerstyle}>
-			<div style={headingtextstyle}>{headingtext}</div>
-			{/* {headingtextarr.map((word) => (
-				<div style={headingtextstyle}>{word}</div>
-			))} */}
+			<div 
+				id="header" 
+				className="header" 
+				ref={ref} 
+				style={headingtextstyle}
+			>
+				{headingtext}
+			</div>
 		</div>
 	);
 }

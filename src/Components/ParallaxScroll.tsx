@@ -1,12 +1,13 @@
 import React from "react";
 import techimage from "../Assets/ramiro-mendes-CjS3QsRuxnE-unsplash.jpg"
 
-export default function ParallaxScroll() {
+const imageurl = techimage
+const titletext = "Come with me and explore my developer journey"
 
-	const titletext = "Come with me and explore my developer journey"
+export function ParallaxScroll(imageurl:any, titletext:string) {
 
 	const backgroundimagestyle = {
-		backgroundImage:`url(${techimage})`,
+		backgroundImage:`url(${imageurl})`,
 		height:"100vh",
 		backgroundSize:"cover",
 		backgroundRepeat:"no-repeat",
@@ -25,7 +26,7 @@ export default function ParallaxScroll() {
 	return (
 		<>
 			<div style={backgroundimagestyle}>
-				<div style={textstyle}>{titletext}</div>
+				{titletext !== "" ? <div style={textstyle}>{titletext}</div> : ""}
 			</div>
 		</>
 	);

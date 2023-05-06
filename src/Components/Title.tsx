@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function Title() {
-	const headerstyle = {
+	const titlestyle = {
 		textAlign: "center" as "center",
 		backgroundColor:"#eeeff1",
 		padding: "4em 0em",
@@ -16,14 +16,9 @@ export default function Title() {
 
 	}
 	const titletext = "Come with me and explore my developer journey"
-	const titletextarr = titletext.split(" ");
-	console.log(titletextarr)
 	return (
-		<div style={headerstyle}>
+		<div style={titlestyle}>
 			<div style={titletextstyle}>{titletext}</div>
-			{/* {headingtextarr.map((word) => (
-				<div style={headingtextstyle}>{word}</div>
-			))} */}
 		</div>
 	);
 }

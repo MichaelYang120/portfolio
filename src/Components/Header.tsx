@@ -9,6 +9,7 @@ export default function Header() {
 		backgroundColor:"red",
 		padding: "4em 0em",
 		display:"flex",
+		// this is how we create a header that start from bottom and becomes sticky
 		position: "sticky" as "sticky",
 		top:"0"
 	}
@@ -18,7 +19,6 @@ export default function Header() {
 		textTransform:"capitalize" as "capitalize",
 		margin:"0 auto",
         backgroundColor:"red",
-
 	}
 
 	useEffect(() => {

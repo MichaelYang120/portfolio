@@ -9,9 +9,12 @@ import Title from './Components/Title';
 function App() {
   return (
     <>
-      <Title/>
+      {/* <Title/> */}
       <ParallaxScroll/>
       <Header/>
+      <Main/>
+      <Header/>
+      <ParallaxScroll/>
       <Main/>
       <Footer/>
     </>

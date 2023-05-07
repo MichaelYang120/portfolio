@@ -3,7 +3,6 @@ import './App.css';
 import Main from './Components/Main';
 import Footer from './Components/Footer';
 import {ParallaxScroll} from './Components/ParallaxScroll';
-import Title from './Components/Title';
 
 import techimage from "./Assets/ramiro-mendes-CjS3QsRuxnE-unsplash.jpg"
 import codescreen from "./Assets/goran-ivos-iacpoKgpBAM-unsplash.jpg"
@@ -17,7 +16,8 @@ function App() {
     <>
       {ParallaxScroll(techimage, titletext)}
       {Main(headingtext)}
-      {ParallaxScroll(codescreen, "", "40vh")}
+      {ParallaxScroll(codescreen, "")}
+      {/* {ParallaxScroll(codescreen, "", "40vh")} */}
       {Main(headingtext2)}
       <Footer/>
     </>

@@ -1,4 +1,6 @@
 import React from "react";
+import lights from "../Assets/joshua-sortino-LqKhnDzSF-8-unsplash.jpg"
+// import lights from "../Assets/beautiful-view-trees-rain-forest-captured-foggy-weather.jpg"
 
 export default function Main(headingtext="") {
 
@@ -10,8 +12,13 @@ export default function Main(headingtext="") {
 		// this is how we create a header that start from bottom and becomes sticky
 		position: "sticky" as "sticky",
 		top:"0",
-		background:"grey"
+		zIndex:'1'
 	}
+
+	const contentstyle = {
+		height:"100vh"
+	}
+
 	const headingtextstyle = {
 		fontSize:"3em",
 		fontWeight:"900",
@@ -20,40 +27,50 @@ export default function Main(headingtext="") {
 	}
 
 	const mainstyles = {
-		// display: "grid"
-		// backgroundColor:"#eeeff1"
+		// filter:"blur(3px)",
+		backgroundSize:"cover",
+		backgroundRepeat:"no-repeat",
+		backgroundAttachment:"fixed",
+		backgroundPosition:"center",
+		position: "sticky" as "sticky",
+		top:"0",
+		width:"100%",
+		zIndex:"1",
+		height:"100vh",
+		border:"none"
 	}
 	
 	const infoboxstlye = {
-		backgroundColor:"aliceblue",
 		padding: "80px 50px",
-		margin: "5px 5px",
+		margin: "0px 5px",
 		border:"black solid 1px",
-		borderRadius:"10px"
-	}
+		borderRadius:"10px",
+		zIndex:"2",
+		position:"relative" as "relative",
 
-	const infotext = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta suscipit cupiditate animi minus expedita, commodi doloribus voluptas beatae ab incidunt earum consequatur non maiores, reiciendis iste voluptatum quidem unde laboriosam officia quas quasi. Maiores sunt velit iure accusamus accusantium deserunt adipisci necessitatibus ipsa nulla nisi rem pariatur, facilis debitis vel!"
+	}
 
 	const infotext2 = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta suscipit cupiditate animi minus expedita, commodi doloribus voluptas beatae ab incidunt earum consequatur non maiores, reiciendis iste voluptatum quidem unde laboriosam officia quas quasi. Maiores sunt velit iure accusamus accusantium deserunt adipisci necessitatibus ipsa nulla nisi rem pariatur, facilis debitis vel!"
 
 	return (
 		<>
-			<div style={mainstyles}>
-				<div style={headerstyle}>
-					<div 
-						id="header" 
-						className="header" 
-						style={headingtextstyle}
-					>
-						{headingtext}
+			<div> 
+				<img src={lights} style={mainstyles} alt="blurbg"/>
+					<div style={contentstyle}>
+						<div style={headerstyle}>
+							<div 
+								id="header" 
+								className="header" 
+								style={headingtextstyle}
+							>
+								{headingtext}
+							</div>
+						</div>
+						<div style={infoboxstlye}>{infotext2}</div>
+						<div style={infoboxstlye}>{infotext2}</div>
+						<div style={infoboxstlye}>{infotext2}</div>
+						<div style={infoboxstlye}>{infotext2}</div>
 					</div>
-				</div>
-				<div style={infoboxstlye}>{infotext}</div>
-				<div style={infoboxstlye}>{infotext2}</div>
-				<div style={infoboxstlye}>{infotext2}</div>
-				<div style={infoboxstlye}>{infotext2}</div>
-				<div style={infoboxstlye}>{infotext2}</div>
-				<div style={infoboxstlye}>{infotext2}</div>
 			</div>
 		</>
 	);

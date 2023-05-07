@@ -1,5 +1,7 @@
 import React from "react";
-import lights from "../Assets/joshua-sortino-LqKhnDzSF-8-unsplash.jpg"
+// import lights from "../Assets/joshua-sortino-LqKhnDzSF-8-unsplash.jpg"
+// import lights from "../Assets/kevin-bhagat-zNRITe8NPqY-unsplash.jpg"
+import lights from "../Assets/jeshoots-com-pUAM5hPaCRI-unsplash.jpg"
 // import lights from "../Assets/beautiful-view-trees-rain-forest-captured-foggy-weather.jpg"
 
 export default function Main(headingtext="") {
@@ -16,7 +18,7 @@ export default function Main(headingtext="") {
 	}
 
 	const contentstyle = {
-		height:"100vh"
+		height:"200vh"
 	}
 
 	const headingtextstyle = {
@@ -38,6 +40,11 @@ export default function Main(headingtext="") {
 		zIndex:"1",
 		height:"100vh",
 		border:"none"
+	}
+
+	const infoboxcontainerstyle = {
+		maxWidth:"50%",
+		margin:"auto"
 	}
 	
 	const infoboxstlye = {
@@ -66,10 +73,12 @@ export default function Main(headingtext="") {
 								{headingtext}
 							</div>
 						</div>
-						<div style={infoboxstlye}>{infotext2}</div>
-						<div style={infoboxstlye}>{infotext2}</div>
-						<div style={infoboxstlye}>{infotext2}</div>
-						<div style={infoboxstlye}>{infotext2}</div>
+						<div style={infoboxcontainerstyle}>
+							<div style={infoboxstlye}>{infotext2}</div>
+							<div style={infoboxstlye}>{infotext2}</div>
+							<div style={infoboxstlye}>{infotext2}</div>
+							<div style={infoboxstlye}>{infotext2}</div>
+						</div>
 					</div>
 			</div>
 		</>

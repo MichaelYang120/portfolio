@@ -6,6 +6,7 @@ import {ParallaxScroll} from './Components/ParallaxScroll';
 
 import techimage from "./Assets/ramiro-mendes-CjS3QsRuxnE-unsplash.jpg"
 import codescreen from "./Assets/goran-ivos-iacpoKgpBAM-unsplash.jpg"
+import laptop from "./Assets/kevin-bhagat-zNRITe8NPqY-unsplash.jpg"
 import ProgressBar from './Components/ProgressBar';
 
 const titletext = "Come with me and explore my developer journey"
@@ -19,7 +20,7 @@ function App() {
       {ParallaxScroll(techimage, titletext)}
       {Main(headingtext)}
       {ParallaxScroll(codescreen, "")}
-      {Main(headingtext2)}
+      {Main(headingtext2, laptop)}
       <Footer/>
     </>
   );

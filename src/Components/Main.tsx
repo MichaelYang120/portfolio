@@ -4,7 +4,9 @@ import React from "react";
 import lights from "../Assets/jeshoots-com-pUAM5hPaCRI-unsplash.jpg"
 // import lights from "../Assets/beautiful-view-trees-rain-forest-captured-foggy-weather.jpg"
 
-export default function Main(headingtext="") {
+let infotextexample = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta suscipit cupiditate animi minus expedita, commodi doloribus voluptas beatae ab incidunt earum consequatur non maiores, reiciendis iste voluptatum quidem unde laboriosam officia quas quasi. Maiores sunt velit iure accusamus accusantium deserunt adipisci necessitatibus ipsa nulla nisi rem pariatur, facilis debitis vel!"
+
+export default function Main(headingtext="", infotext:Array<string>|string=infotextexample, mainbgimage=lights) {
 
 	const headerstyle = {
 		textAlign: "center" as "center",
@@ -57,30 +59,57 @@ export default function Main(headingtext="") {
 
 	}
 
-	const infotext2 = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta suscipit cupiditate animi minus expedita, commodi doloribus voluptas beatae ab incidunt earum consequatur non maiores, reiciendis iste voluptatum quidem unde laboriosam officia quas quasi. Maiores sunt velit iure accusamus accusantium deserunt adipisci necessitatibus ipsa nulla nisi rem pariatur, facilis debitis vel!"
-
-	return (
-		<>
-			<div> 
-				<img src={lights} style={mainstyles} alt="blurbg"/>
-					<div style={contentstyle}>
-						<div style={headerstyle}>
-							<div 
-								id="header" 
-								className="header" 
-								style={headingtextstyle}
-							>
-								{headingtext}
+	if (typeof(infotext) === "string") {
+		return (
+			<>
+				<div> 
+					<img src={mainbgimage} style={mainstyles} alt="blurbg"/>
+						<div style={contentstyle}>
+							<div style={headerstyle}>
+								<div 
+									id="header" 
+									className="header" 
+									style={headingtextstyle}
+								>
+									{headingtext}
+								</div>
+							</div>
+							<div style={infoboxcontainerstyle}>
+								<div style={infoboxstlye}>{infotext}</div>
+								<div style={infoboxstlye}>{infotext}</div>
+								<div style={infoboxstlye}>{infotext}</div>
+								<div style={infoboxstlye}>{infotext}</div>
 							</div>
 						</div>
-						<div style={infoboxcontainerstyle}>
-							<div style={infoboxstlye}>{infotext2}</div>
-							<div style={infoboxstlye}>{infotext2}</div>
-							<div style={infoboxstlye}>{infotext2}</div>
-							<div style={infoboxstlye}>{infotext2}</div>
+				</div>
+			</>
+		);
+
+	} else {
+
+		return (
+			<>
+				<div> 
+					<img src={lights} style={mainstyles} alt="blurbg"/>
+						<div style={contentstyle}>
+							<div style={headerstyle}>
+								<div 
+									id="header" 
+									className="header" 
+									style={headingtextstyle}
+								>
+									{headingtext}
+								</div>
+							</div>
+							<div style={infoboxcontainerstyle}>
+								{infotext.map((word:any) => (
+									<div style={headingtextstyle}>{word}</div>
+								))}
+							</div>
 						</div>
-					</div>
-			</div>
-		</>
-	);
+				</div>
+			</>
+		);
+	}
+	
 }

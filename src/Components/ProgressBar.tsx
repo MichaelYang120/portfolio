@@ -29,10 +29,9 @@ export default function ProgressBar() {
 
 	return (
 		<>
-            <div id="progressBarContainer">
-                <div id="progressBar" style={progressbarstyle} />
-            </div>
-
+			<div id="progressBarContainer">
+				<div id="progressBar" style={progressbarstyle}/>
+			</div>
 		</>
 	);
 }

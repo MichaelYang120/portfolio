@@ -21,9 +21,9 @@ function App() {
       <ProgressBar />
       {ParallaxScroll(techimage, titletext)}
       {Main(headingtext)}
+      <ParallaxContent />
       {ParallaxScroll(codescreen, "")}
       {Main(headingtext2, laptop)}
-      <ParallaxContent />
       <Footer/>
     </>
   );

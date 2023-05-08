@@ -2,13 +2,13 @@ import React from "react";
 // import lights from "../Assets/joshua-sortino-LqKhnDzSF-8-unsplash.jpg"
 // import lights from "../Assets/kevin-bhagat-zNRITe8NPqY-unsplash.jpg"
 import lights from "../Assets/jeshoots-com-pUAM5hPaCRI-unsplash.jpg"
-// import lights from "../Assets/beautiful-view-trees-rain-forest-captured-foggy-weather.jpg"
+import lights2 from "../Assets/beautiful-view-trees-rain-forest-captured-foggy-weather.jpg"
 
 let infotextexample = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta suscipit cupiditate animi minus expedita, commodi doloribus voluptas beatae ab incidunt earum consequatur non maiores, reiciendis iste voluptatum quidem unde laboriosam officia quas quasi. Maiores sunt velit iure accusamus accusantium deserunt adipisci necessitatibus ipsa nulla nisi rem pariatur, facilis debitis vel!"
 
-export default function Main(headingtext="", mainbgimage=lights, infotext:Array<string>|string=infotextexample, ) {
+export default function Main(headingtext="", mainbgimage=lights, infotext:Array<string>|string=infotextexample) {
 
-	const headerstyle = {
+	const titlestyle = {
 		textAlign: "center" as "center",
 		// backgroundColor:"none",
 		padding: "2em 0em",
@@ -16,14 +16,14 @@ export default function Main(headingtext="", mainbgimage=lights, infotext:Array<
 		// this is how we create a header that start from bottom and becomes sticky
 		position: "sticky" as "sticky",
 		top:"0",
-		zIndex:'1'
+		zIndex:'3'
 	}
 
 	const contentstyle = {
-		height:"200vh"
+		height:"220vh"
 	}
 
-	const headingtextstyle = {
+	const titletextstyle = {
 		fontSize:"3em",
 		fontWeight:"900",
 		textTransform:"capitalize" as "capitalize",
@@ -51,11 +51,12 @@ export default function Main(headingtext="", mainbgimage=lights, infotext:Array<
 	
 	const infoboxstlye = {
 		padding: "80px 50px",
-		margin: "0px 5px",
+		margin: "40px 5px",
 		border:"black solid 1px",
 		borderRadius:"10px",
 		zIndex:"2",
 		position:"relative" as "relative",
+		background: "white"
 
 	}
 
@@ -65,16 +66,16 @@ export default function Main(headingtext="", mainbgimage=lights, infotext:Array<
 				<div> 
 					<img src={mainbgimage} style={mainstyles} alt="blurbg"/>
 						<div style={contentstyle}>
-							<div style={headerstyle}>
-								<div 
-									id="header" 
-									className="header" 
-									style={headingtextstyle}
-								>
-									{headingtext}
-								</div>
-							</div>
 							<div style={infoboxcontainerstyle}>
+								<div style={titlestyle}>
+									<div 
+										id="title" 
+										className="title" 
+										style={titletextstyle}
+									>
+										{headingtext}
+									</div>
+								</div>
 								<div style={infoboxstlye}>{infotext}</div>
 								<div style={infoboxstlye}>{infotext}</div>
 								<div style={infoboxstlye}>{infotext}</div>
@@ -92,18 +93,18 @@ export default function Main(headingtext="", mainbgimage=lights, infotext:Array<
 				<div> 
 					<img src={lights} style={mainstyles} alt="blurbg"/>
 						<div style={contentstyle}>
-							<div style={headerstyle}>
-								<div 
-									id="header" 
-									className="header" 
-									style={headingtextstyle}
-								>
-									{headingtext}
-								</div>
-							</div>
 							<div style={infoboxcontainerstyle}>
+								<div style={titlestyle}>
+									<div 
+										id="title" 
+										className="title" 
+										style={titletextstyle}
+									>
+										{headingtext}
+									</div>
+								</div>
 								{infotext.map((word:any) => (
-									<div style={headingtextstyle}>{word}</div>
+									<div style={infoboxstlye}>{word}</div>
 								))}
 							</div>
 						</div>

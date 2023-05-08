@@ -14,7 +14,7 @@ export default function ProgressBar() {
 			const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
 			const scroll = `${totalScroll / windowHeight}`;
 			setScroll(Number(scroll));
-			console.log(scroll)
+			// console.log(scroll)
 		}
 
 		window.addEventListener("scroll", progressBarHandler);

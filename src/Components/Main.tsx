@@ -41,14 +41,19 @@ export default function Main(headingtext="", mainbgimage=lights, infotext:Array<
 		width:"100%",
 		zIndex:"1",
 		height:"100vh",
-		border:"none"
+		border:"none",
+		// this is to create a parallax image on the right and text on the left side
+		// to create this effect you would have to append an image with the css attribute below to the div element that has style:infoboxcontainerstyle
+		// maxWidth:"50%"
 	}
 
 	const infoboxcontainerstyle = {
 		maxWidth:"50%",
-		margin:"auto"
+		margin:"auto",
+		// this is to create a parallax image on the right and text on the left side
+		// float:"right" as "right"
 	}
-	
+
 	const infoboxstlye = {
 		padding: "80px 50px",
 		margin: "40px 5px",
@@ -63,14 +68,14 @@ export default function Main(headingtext="", mainbgimage=lights, infotext:Array<
 	if (typeof(infotext) === "string") {
 		return (
 			<>
-				<div> 
+				<div>
 					<img src={mainbgimage} style={mainstyles} alt="blurbg"/>
 						<div style={contentstyle}>
 							<div style={infoboxcontainerstyle}>
 								<div style={titlestyle}>
-									<div 
-										id="title" 
-										className="title" 
+									<div
+										id="title"
+										className="title"
 										style={titletextstyle}
 									>
 										{headingtext}
@@ -90,14 +95,14 @@ export default function Main(headingtext="", mainbgimage=lights, infotext:Array<
 
 		return (
 			<>
-				<div> 
+				<div>
 					<img src={lights} style={mainstyles} alt="blurbg"/>
 						<div style={contentstyle}>
 							<div style={infoboxcontainerstyle}>
 								<div style={titlestyle}>
-									<div 
-										id="title" 
-										className="title" 
+									<div
+										id="title"
+										className="title"
 										style={titletextstyle}
 									>
 										{headingtext}
@@ -112,5 +117,5 @@ export default function Main(headingtext="", mainbgimage=lights, infotext:Array<
 			</>
 		);
 	}
-	
+
 }

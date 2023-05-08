@@ -3,11 +3,13 @@ import './App.css';
 import Main from './Components/Main';
 import Footer from './Components/Footer';
 import {ParallaxScroll} from './Components/ParallaxScroll';
+import ParallaxContent from './Components/ParallaxContent';
+import ProgressBar from './Components/ProgressBar';
 
+// images
 import techimage from "./Assets/ramiro-mendes-CjS3QsRuxnE-unsplash.jpg"
 import codescreen from "./Assets/goran-ivos-iacpoKgpBAM-unsplash.jpg"
 import laptop from "./Assets/kevin-bhagat-zNRITe8NPqY-unsplash.jpg"
-import ProgressBar from './Components/ProgressBar';
 
 const titletext = "Come with me and explore my developer journey"
 const headingtext = "about me"
@@ -21,6 +23,7 @@ function App() {
       {Main(headingtext)}
       {ParallaxScroll(codescreen, "")}
       {Main(headingtext2, laptop)}
+      <ParallaxContent />
       <Footer/>
     </>
   );

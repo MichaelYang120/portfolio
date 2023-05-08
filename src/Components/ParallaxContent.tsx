@@ -26,25 +26,18 @@ export default function ParallaxContent() {
 	}
     
 	const mainstyles = {
-        // filter:"blur(3px)",
 		backgroundSize:"cover",
 		backgroundRepeat:"no-repeat",
 		backgroundAttachment:"fixed",
 		backgroundPosition:"center",
 		position: "sticky" as "sticky",
 		top:"0",
-		// width:"100%",
-		zIndex:"1",
 		height:"100vh",
-		// this is to create a parallax image on the right and text on the left side
-		// to create this effect you would have to append an image with the css attribute below to the div element that has style:infoboxcontainerstyle
 		maxWidth:"50%",
 	}
     
 	const infoboxcontainerstyle = {
         width:"50%",
-		// margin:"auto",
-		// this is to create a parallax image on the right and text on the left side
 		float:"right" as "right",
         background:"red",
         margin:"0 auto 0 auto"

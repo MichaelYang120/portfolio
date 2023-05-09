@@ -1,5 +1,7 @@
 import React from "react";
 import defaultimage from "../Assets/altumcode-FoTs3ntRoIs-unsplash.jpg"
+import {SkillsIcons} from "./SkillsIcons"
+
 
 // this component is a divided component that is split, left half will consist of an image, where the right have will have text content 
 
@@ -114,6 +116,7 @@ export default function ParallaxContent(headingtext:string, infotext:string|Arra
 							{infotext.map((word:any) => (
 								<p>{word}<br/></p>
 							))}
+							<SkillsIcons />
 						</div>
 					</div>
 				</div>

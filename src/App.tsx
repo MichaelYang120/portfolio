@@ -8,13 +8,12 @@ import ProgressBar from './Components/ProgressBar';
 
 // images
 import techimage from "./Assets/ramiro-mendes-CjS3QsRuxnE-unsplash.jpg";
-import codescreen from "./Assets/goran-ivos-iacpoKgpBAM-unsplash.jpg";
+import codescreen from "./Assets/kevin-bhagat-zNRITe8NPqY-unsplash.jpg";
 import laptop from "./Assets/kevin-bhagat-zNRITe8NPqY-unsplash.jpg";
-import lights from "./Assets/jeshoots-com-pUAM5hPaCRI-unsplash.jpg"
+import lights from "./Assets/georgie-cobbs-muOHbrFGEQY-unsplash.jpg";
+import aboutmeimg from "./Assets/ilya-pavlov-OqtafYT5kTw-unsplash.jpg"
 
 const titletext = "Come with me and explore my developer journey";
-const headingtext = "about me";
-const headingtext2 = "My projects";
 
 const aboutmetext = ["As a self-taught software engineer/developer, I have always been passionate about learning and expanding my knowledge in the field. Since I began my journey as a software engineer, I have relied on my peers and colleagues to help me grow and improve my skills. Their support and guidance have been invaluable in my development as an engineer.",
 
@@ -32,8 +31,8 @@ function App() {
       <ProgressBar/>
       {ParallaxScroll(techimage, titletext)} {/* landing page, with text */} 
       {/* parallaxconente is a divided section */}
-      {ParallaxContent("about me", aboutmetext, "100vh")}
-      {ParallaxContent(headingtext2, aboutmetext, "100vh", lights)}
+      {ParallaxContent("about me", aboutmetext, "140vh", aboutmeimg)}
+      {ParallaxContent("my projects", aboutmetext, "140vh", lights)}
       {ParallaxScroll(codescreen, "")}
       {/* {Main(headingtext2, laptop)} */}
       <Footer/>

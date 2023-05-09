@@ -5,7 +5,7 @@ export default function Footer() {
 		backgroundColor: "grey",
 		color: "white",
 		textAlign: "center" as "center",
-		padding: "4em 0em",
+		padding: "5em 0em",
 		bottom: "0",
 		width: "100%",
 

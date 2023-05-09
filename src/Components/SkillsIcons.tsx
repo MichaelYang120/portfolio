@@ -2,7 +2,7 @@ import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMugSaucer } from '@fortawesome/free-solid-svg-icons'
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
-import { faGithub, faReact } from '@fortawesome/free-brands-svg-icons'
+import { faGithub, faReact, faBitbucket, faJsSquare, faPhp, faHtml5, faCss3, faCss3Alt } from '@fortawesome/free-brands-svg-icons'
 import {
     IconLookup,
     IconDefinition,
@@ -21,6 +21,11 @@ import {
                 <FontAwesomeIcon icon={coffeeIconDefinition} />
                 <FontAwesomeIcon icon={faReact} />
                 <FontAwesomeIcon icon={faGithub} />
+                <FontAwesomeIcon icon={faBitbucket} />
+                <FontAwesomeIcon icon={faJsSquare} />
+                <FontAwesomeIcon icon={faPhp} />
+                <FontAwesomeIcon icon={faHtml5} />
+                <FontAwesomeIcon icon={faCss3Alt} />
             </div>
         </>	
     )

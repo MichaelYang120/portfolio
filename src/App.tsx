@@ -29,14 +29,13 @@ const aboutmetext = ["As a self-taught software engineer/developer, I have alway
 function App() {
   return (
     <>
-      <ProgressBar />
-      {/* about me section */}
-      {ParallaxScroll(techimage, titletext)}
-      {/* {ParallaxScroll(techimage, titletext)} */}
-      {Main(headingtext, lights, aboutmetext)}
-      <ParallaxContent />
+      <ProgressBar/>
+      {ParallaxScroll(techimage, titletext)} {/* landing page, with text */} 
+      {/* parallaxconente is a divided section */}
+      {ParallaxContent("about me", aboutmetext, "100vh")}
+      {ParallaxContent(headingtext2, aboutmetext, "100vh", lights)}
       {ParallaxScroll(codescreen, "")}
-      {Main(headingtext2, laptop)}
+      {/* {Main(headingtext2, laptop)} */}
       <Footer/>
     </>
   );

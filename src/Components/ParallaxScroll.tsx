@@ -39,7 +39,6 @@ export function ParallaxScroll(imageurl:any, titletext:string|Array<string>, vhs
 					{titletext.map((word:any) => (
 						<div style={textstyle}>{titletext}</div>
 					))}
-			
 				</div>
 	
 			</>

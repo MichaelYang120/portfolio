@@ -4,7 +4,7 @@ import lights from "../Assets/jeshoots-com-pUAM5hPaCRI-unsplash.jpg"
 
 let infotextexample = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta suscipit cupiditate animi minus expedita, commodi doloribus voluptas beatae ab incidunt earum consequatur non maiores, reiciendis iste voluptatum quidem unde laboriosam officia quas quasi. Maiores sunt velit iure accusamus accusantium deserunt adipisci necessitatibus ipsa nulla nisi rem pariatur, facilis debitis vel!"
 
-export default function Main(headingtext="", mainbgimage=lights, infotext:Array<string>|string=infotextexample) {
+export default function Main(headingtext="", mainbgimage=lights, infotext:Array<string>|string=infotextexample, contentheight:string="220vh") {
 
 	const titlestyle = {
 		textAlign: "center" as "center",
@@ -16,7 +16,7 @@ export default function Main(headingtext="", mainbgimage=lights, infotext:Array<
 	}
 
 	const contentstyle = {
-		height:"220vh"
+		height:contentheight
 	}
 
 	const titletextstyle = {
@@ -53,6 +53,14 @@ export default function Main(headingtext="", mainbgimage=lights, infotext:Array<
 		position:"relative" as "relative",
 		background: "white"
 
+	}
+
+	const infoboxarraystyle = {
+		// border:"black solid 1px",
+		// borderRadius:"5px",
+		zIndex:"2",
+		position:"relative" as "relative",
+		// background: "white"	
 	}
 
 	if (typeof(infotext) === "string") {
@@ -98,9 +106,11 @@ export default function Main(headingtext="", mainbgimage=lights, infotext:Array<
 										{headingtext}
 									</div>
 								</div>
-								{infotext.map((word:any) => (
-									<div style={infoboxstlye}>{word}</div>
-								))}
+								<div style={infoboxarraystyle}>
+									{infotext.map((word:any) => (
+										<p>{word}<br/></p>
+									))}
+								</div>
 							</div>
 						</div>
 				</div>

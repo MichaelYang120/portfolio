@@ -13,7 +13,8 @@ export default function ParallaxContent(headingtext:string, infotext:string|Arra
 		display:"flex",
 		position: "sticky" as "sticky",
 		top:"0",
-		zIndex:'3'
+		zIndex:'3',
+		background:"white",
 	}
 
 	const contentstyle = {
@@ -27,6 +28,8 @@ export default function ParallaxContent(headingtext:string, infotext:string|Arra
 		fontWeight:"900",
 		textTransform:"capitalize" as "capitalize",
 		margin:"0 auto",
+		borderBottom: "1px black solid",
+
 	}
     
 	const mainstyles = {
@@ -38,6 +41,7 @@ export default function ParallaxContent(headingtext:string, infotext:string|Arra
 		top:"0",
 		height:"100vh",
 		maxWidth:"50%",
+		width:"50%"
 	}
     
 	const infoboxcontainerstyle = {
@@ -65,6 +69,7 @@ export default function ParallaxContent(headingtext:string, infotext:string|Arra
 		// borderRadius:"5px",
 		zIndex:"2",
 		position:"relative" as "relative",
+		padding:"40px 60px"
 		// background: "white"	
 	}
 

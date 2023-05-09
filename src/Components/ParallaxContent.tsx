@@ -1,21 +1,20 @@
 import React from "react";
-import lights2 from "../Assets/beautiful-view-trees-rain-forest-captured-foggy-weather.jpg"
+import lights2 from "../Assets/altumcode-FoTs3ntRoIs-unsplash.jpg"
 
 export default function ParallaxContent() {
 	const titlestyle = {
 		textAlign: "center" as "center",
-		// backgroundColor:"none",
 		padding: "2em 0em",
 		display:"flex",
-		// this is how we create a header that start from bottom and becomes sticky
 		position: "sticky" as "sticky",
 		top:"0",
 		zIndex:'3'
 	}
 
 	const contentstyle = {
-		height:"220vh",
-        background:"pink",
+		// height:"220vh",
+		height:"150vh",
+        // background:"pink",
 	}
 
 	const titletextstyle = {
@@ -39,7 +38,7 @@ export default function ParallaxContent() {
 	const infoboxcontainerstyle = {
         width:"50%",
 		float:"right" as "right",
-        background:"red",
+        background:"white",
         margin:"0 auto 0 auto"
 
 	}
@@ -74,7 +73,6 @@ export default function ParallaxContent() {
                             {headingtext}
                         </div>
                     </div>
-                    <div style={infoboxstlye}>{infotext}</div>
                     <div style={infoboxstlye}>{infotext}</div>
                     <div style={infoboxstlye}>{infotext}</div>
                     <div style={infoboxstlye}>{infotext}</div>

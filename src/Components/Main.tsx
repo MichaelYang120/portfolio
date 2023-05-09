@@ -1,6 +1,6 @@
 import React from "react";
 import lights from "../Assets/jeshoots-com-pUAM5hPaCRI-unsplash.jpg"
-import lights2 from "../Assets/beautiful-view-trees-rain-forest-captured-foggy-weather.jpg"
+// import lights2 from "../Assets/beautiful-view-trees-rain-forest-captured-foggy-weather.jpg"
 
 let infotextexample = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta suscipit cupiditate animi minus expedita, commodi doloribus voluptas beatae ab incidunt earum consequatur non maiores, reiciendis iste voluptatum quidem unde laboriosam officia quas quasi. Maiores sunt velit iure accusamus accusantium deserunt adipisci necessitatibus ipsa nulla nisi rem pariatur, facilis debitis vel!"
 
@@ -48,7 +48,7 @@ export default function Main(headingtext="", mainbgimage=lights, infotext:Array<
 		padding: "80px 50px",
 		margin: "40px 5px",
 		border:"black solid 1px",
-		borderRadius:"10px",
+		borderRadius:"5px",
 		zIndex:"2",
 		position:"relative" as "relative",
 		background: "white"

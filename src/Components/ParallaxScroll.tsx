@@ -4,7 +4,7 @@ import techimage from "../Assets/ramiro-mendes-CjS3QsRuxnE-unsplash.jpg"
 const imageurl = techimage
 const titletext = "Come with me and explore my developer journey"
 
-export function ParallaxScroll(imageurl:any, titletext:string, vhsetting="100vh") {
+export function ParallaxScroll(imageurl:any, titletext:string|Array<string>, vhsetting="100vh") {
 
 	const backgroundimagestyle = {
 		backgroundImage:`url(${imageurl})`,
@@ -23,11 +23,28 @@ export function ParallaxScroll(imageurl:any, titletext:string, vhsetting="100vh"
 		textTransform:"capitalize" as "capitalize",
 	}
 
-	return (
-		<>
-			<div style={backgroundimagestyle}>
-				{titletext !== "" ? <div style={textstyle}>{titletext}</div> : ""}
-			</div>
-		</>
-	);
+	if ((typeof(titletext) === "string")) {
+		return (
+			<>
+				<div style={backgroundimagestyle}>
+					{titletext !== "" ? <div style={textstyle}>{titletext}</div> : ""}
+				</div>
+			</>
+		);
+
+	} else {
+		return (
+			<>
+				<div style={backgroundimagestyle}>
+					{titletext.map((word:any) => (
+						<div style={textstyle}>{titletext}</div>
+					))}
+			
+				</div>
+	
+			</>
+		)
+
+	}
+
 }

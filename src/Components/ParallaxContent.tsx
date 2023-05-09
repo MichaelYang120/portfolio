@@ -5,9 +5,6 @@ import {SkillsIcons} from "./SkillsIcons"
 
 // this component is a divided component that is split, left half will consist of an image, where the right have will have text content 
 
-const infotext =  "this is also a test";
-const headingtext = "this is a test";
-
 export default function ParallaxContent(headingtext:string, infotext:string|Array<string>, defaultheight:string="150vh", lights2:string=defaultimage) {
 	const titlestyle = {
 		textAlign: "center" as "center",

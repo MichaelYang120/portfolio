@@ -16,12 +16,11 @@ import {
     return (
         <>
             <div>
-                {/* <FontAwesomeIcon icon={faCoffee} />
-                <FontAwesomeIcon icon={faMugSaucer} /> */}
+                <FontAwesomeIcon icon={faCoffee} />
+                <FontAwesomeIcon icon={faMugSaucer} />
                 <FontAwesomeIcon icon={coffeeIconDefinition} />
                 <FontAwesomeIcon icon={faReact} />
-
-
+                <FontAwesomeIcon icon={faGithub} />
             </div>
         </>	
     )

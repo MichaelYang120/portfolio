@@ -1,8 +1,4 @@
 import React from "react";
-import techimage from "../Assets/ramiro-mendes-CjS3QsRuxnE-unsplash.jpg"
-
-const imageurl = techimage
-const titletext = "Come with me and explore my developer journey"
 
 export function ParallaxScroll(imageurl:any, titletext:string|Array<string>, vhsetting="100vh") {
 

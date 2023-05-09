@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import Main from './Components/Main';
 import Footer from './Components/Footer';
 import {ParallaxScroll} from './Components/ParallaxScroll';
 import ParallaxContent from './Components/ParallaxContent';
@@ -9,7 +8,6 @@ import ProgressBar from './Components/ProgressBar';
 // images
 import techimage from "./Assets/ramiro-mendes-CjS3QsRuxnE-unsplash.jpg";
 import codescreen from "./Assets/kevin-bhagat-zNRITe8NPqY-unsplash.jpg";
-import laptop from "./Assets/kevin-bhagat-zNRITe8NPqY-unsplash.jpg";
 import lights from "./Assets/georgie-cobbs-muOHbrFGEQY-unsplash.jpg";
 import aboutmeimg from "./Assets/ilya-pavlov-OqtafYT5kTw-unsplash.jpg"
 

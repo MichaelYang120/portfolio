@@ -1,29 +1,52 @@
 import React from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faGithub, faReact, faBitbucket, faJsSquare, faPhp, faHtml5, faCss3, faCss3Alt } from '@fortawesome/free-brands-svg-icons'
-import { Icons, jqueryIcon, mysqlIcon, typescriptIcon } from "./Icons";
+import { faGithub, faBitbucket, faHtml5, faCss3Alt, faJs } from '@fortawesome/free-brands-svg-icons'
+import { Icons, jqueryIcon, mysqlIcon, phpIcon, reactIcon, typescriptIcon } from "./Icons";
   
   export function SkillsIcons() {
-    const skillscontainerstyle = {
-        margin:"auto",
-        maxWidth:"80%",
-        textAlign:"center" as "center"
-    }
+	const skillscontainerstyle = {
+		margin:"auto",
+		maxWidth:"80%",
+		textAlign:"center" as "center"
+	}
+	const test = {
+		margin:"12px 10px"
+	}
 
-    return (
-        <>
-            <div style={skillscontainerstyle}>
-                {(Icons(faReact, "red", "46px"))}
-                {(Icons(faGithub, "red", "46px"))}
-                {(Icons(faBitbucket, "red", "46px"))}
-                {(Icons(faJsSquare, "red", "46px"))}
-                {(Icons(faPhp, "red", "46px"))}
-                {(Icons(faHtml5, "red", "46px"))}
-                {(Icons(faCss3Alt, "red", "46px"))}
-                {(typescriptIcon("41px"))}
-                {(jqueryIcon("42px"))}
-                {(mysqlIcon("42px"))}
-            </div>
-        </>	
-    )
+	return (
+		<>
+			<div style={skillscontainerstyle}>
+				<span style={test}>
+					{(reactIcon("42px"))}
+				</span>
+				<span style={test}>
+					{(Icons(faGithub, "#0073c2", "46px"))}                    
+				</span>
+				<span style={test}>
+					{(Icons(faBitbucket, "#0073c2", "46px"))}
+				</span>
+				<span style={test}>
+					{(Icons(faJs, "rgb(247, 223, 30)", "46px"))}
+					{/* {(javascriptIcon("43px"))} */}
+				</span>
+				<span style={test}>
+					{(phpIcon("42px"))}
+				</span>
+				<span style={test}>
+					{(Icons(faHtml5, "rgb(255, 87, 34)", "46px"))}
+				</span>
+				<span style={test}>
+				   {(Icons(faCss3Alt, "rgb(33, 150, 243)", "46px"))}
+				</span>
+				<span style={test}>
+				   {(typescriptIcon("41px"))}                    
+				</span>
+				<span style={test}>
+					{(jqueryIcon("42px"))}
+				</span>
+				<span style={test}>
+					{(mysqlIcon("42px"))}
+				</span>
+			</div>
+		</>	
+	)
 }

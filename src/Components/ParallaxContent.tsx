@@ -110,10 +110,10 @@ export default function ParallaxContent(headingtext:string, infotext:string|Arra
 							</div>
 						</div>
 						<div style={infoboxarraystyle}>
+							<SkillsIcons />
 							{infotext.map((word:any) => (
 								<p>{word}<br/></p>
 							))}
-							<SkillsIcons />
 						</div>
 					</div>
 				</div>

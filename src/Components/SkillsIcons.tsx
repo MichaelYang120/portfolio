@@ -1,7 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub, faReact, faBitbucket, faJsSquare, faPhp, faHtml5, faCss3, faCss3Alt } from '@fortawesome/free-brands-svg-icons'
-import { Icons, jqueryIcon, typescriptIcon } from "./Icons";
+import { Icons, jqueryIcon, mysqlIcon, typescriptIcon } from "./Icons";
   
   export function SkillsIcons() {
     const skillscontainerstyle = {
@@ -22,6 +22,7 @@ import { Icons, jqueryIcon, typescriptIcon } from "./Icons";
                 {(Icons(faCss3Alt, "red", "46px"))}
                 {(typescriptIcon("41px"))}
                 {(jqueryIcon("42px"))}
+                {(mysqlIcon("42px"))}
             </div>
         </>	
     )

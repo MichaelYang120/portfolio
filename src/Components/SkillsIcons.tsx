@@ -1,6 +1,6 @@
 import React from "react";
 import { faGithub, faBitbucket, faHtml5, faCss3Alt, faJs } from '@fortawesome/free-brands-svg-icons'
-import { Icons, jqueryIcon, mysqlIcon, phpIcon, reactIcon, typescriptIcon } from "./Icons";
+import { Icons, jqueryIcon, mysqlIcon, phpIcon, reactIcon, typescriptIcon, javascriptIcon } from "./Icons";
   
   export function SkillsIcons() {
 	const skillscontainerstyle = {
@@ -25,8 +25,8 @@ import { Icons, jqueryIcon, mysqlIcon, phpIcon, reactIcon, typescriptIcon } from
 					{(Icons(faBitbucket, "#0073c2", "46px"))}
 				</span>
 				<span style={test}>
-					{(Icons(faJs, "rgb(247, 223, 30)", "46px"))}
-					{/* {(javascriptIcon("43px"))} */}
+					{/* {(Icons(faJs, "rgb(247, 223, 30)", "46px"))} */}
+					{(javascriptIcon("43px"))}
 				</span>
 				<span style={test}>
 					{(phpIcon("42px"))}

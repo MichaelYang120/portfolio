@@ -1,4 +1,5 @@
 import React from "react";
+import { Icons, jqueryIcon, mysqlIcon, phpIcon, reactIcon, typescriptIcon, javascriptIcon, linkedinIcon, githubIcon, emailIcon } from "./Icons";
 
 export default function Footer() {
 	const footerstyle = {
@@ -13,6 +14,13 @@ export default function Footer() {
 	return (
 		<div style={footerstyle}>
 			<div>Contact Me</div>
+			<div>
+				{(linkedinIcon("43px"))}
+				{(githubIcon("43px"))}
+				<div>
+					{(emailIcon("30px"))}
+				</div>
+			</div>
 			<div>© 2023 MichaelYang.io. All rights reserved.</div>
 		</div>
 	);

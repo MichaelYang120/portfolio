@@ -1,5 +1,5 @@
 import React from "react";
-import { Icons, jqueryIcon, mysqlIcon, phpIcon, reactIcon, typescriptIcon, javascriptIcon, linkedinIcon, githubIcon, emailIcon } from "./Icons";
+import { linkedinIcon, githubIcon, emailIcon } from "./Icons";
 
 export default function Footer() {
 	const footerstyle = {

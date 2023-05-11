@@ -56,11 +56,8 @@ export default function Main(headingtext="", mainbgimage=lights, infotext:Array<
 	}
 
 	const infoboxarraystyle = {
-		// border:"black solid 1px",
-		// borderRadius:"5px",
 		zIndex:"2",
 		position:"relative" as "relative",
-		// background: "white"	
 	}
 
 	if (typeof(infotext) === "string") {

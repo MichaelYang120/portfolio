@@ -17,9 +17,7 @@ export default function ParallaxContent(headingtext:string, infotext:string|Arra
 	}
 
 	const contentstyle = {
-		// height:"220vh",
 		height:defaultheight,
-        // background:"pink",
 	}
 
 	const titletextstyle = {
@@ -64,12 +62,9 @@ export default function ParallaxContent(headingtext:string, infotext:string|Arra
 	}
 
 	const infoboxarraystyle = {
-		// border:"black solid 1px",
-		// borderRadius:"5px",
 		zIndex:"2",
 		position:"relative" as "relative",
 		padding:"40px 60px"
-		// background: "white"	
 	}
 
 	if (typeof(infotext) === "string") {

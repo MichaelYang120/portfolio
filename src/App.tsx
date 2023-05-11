@@ -29,8 +29,8 @@ function App() {
       <ProgressBar/>
       {ParallaxScroll(techimage, titletext)} {/* landing page, with text */} 
       {/* parallaxconente is a divided section */}
-      {ParallaxContent("about me", aboutmetext, "200vh", aboutmeimg)}
-      {ParallaxContent("my projects", aboutmetext, "200vh", lights)}
+      {ParallaxContent("about me", aboutmetext, "100vh", aboutmeimg)}
+      {ParallaxContent("my projects", aboutmetext, "100vh", lights)}
       {ParallaxScroll(codescreen, "")}
       {/* {Main(headingtext2, laptop)} */}
       <Footer/>

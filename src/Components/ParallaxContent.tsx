@@ -36,7 +36,7 @@ export default function ParallaxContent(headingtext:string, infotext:string|Arra
 		backgroundPosition:"center",
 		position: "sticky" as "sticky",
 		top:"0",
-		height:"120vh",
+		height:"100vh",
 		maxWidth:"50%",
 		width:"50%"
 	}
@@ -48,7 +48,6 @@ export default function ParallaxContent(headingtext:string, infotext:string|Arra
         margin:"0 auto 0 auto",
 		boxShadow:"2px 6px 10px -2px rgba(0,0,0,0.79)",
 		height:"100vh",
-		zIndex:"2"
 
 	}
 

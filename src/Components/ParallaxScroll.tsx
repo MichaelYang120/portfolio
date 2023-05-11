@@ -13,10 +13,12 @@ export function ParallaxScroll(imageurl:any, titletext:string|Array<string>, vhs
 	const textstyle = {
 		margin:"0",
 		textAlign:"center" as "center",
-		paddingTop:"4em",
-		fontSize:"2em",
+		paddingTop:"2em",
+		fontSize:"3em",
 		fontWeight:"900",
 		textTransform:"capitalize" as "capitalize",
+		fontStyle: "oblique",
+		fontFamily:"serif"
 	}
 
 	if ((typeof(titletext) === "string")) {

@@ -25,7 +25,6 @@ export default function ParallaxContent(headingtext:string, infotext:string|Arra
 		fontWeight:"900",
 		textTransform:"capitalize" as "capitalize",
 		margin:"0 auto",
-		borderBottom: "1px black solid",
 
 	}
     
@@ -45,7 +44,9 @@ export default function ParallaxContent(headingtext:string, infotext:string|Arra
         width:"50%",
 		float:"right" as "right",
         background:"white",
-        margin:"0 auto 0 auto"
+        margin:"0 auto 0 auto",
+		boxShadow:"2px 6px 10px -2px rgba(0,0,0,0.79)",
+		height:"100vh"
 
 	}
 

@@ -110,7 +110,8 @@ export function githubIcon(iconHeight:string) {
 
 export function emailIcon(iconHeight:string) {
     const iconscoutstyle = {
-        height:iconHeight
+        height:iconHeight,
+        marginBottom:"5px"
     }
 
     return (

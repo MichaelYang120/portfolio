@@ -11,15 +11,28 @@ export default function Footer() {
 		width: "100%",
 
 	}
+
+	const iconcontainer = {
+		margin:"10px"
+	}
+
+	const mainiconcontainerstyle = {
+		margin:"10px 0"
+	}
+
 	return (
 		<div style={footerstyle}>
 			<div>Contact Me</div>
-			<div>
-				{(linkedinIcon("43px"))}
-				{(githubIcon("43px"))}
-				<div>
+			<div style={mainiconcontainerstyle}>
+				<span style={iconcontainer}>
+					{(githubIcon("43px"))}
+				</span>
+				<span style={iconcontainer}>
+					{(linkedinIcon("43px"))}
+				</span>
+				<span style={iconcontainer}>
 					{(emailIcon("30px"))}
-				</div>
+				</span>
 			</div>
 			<div>© 2023 MichaelYang.io. All rights reserved.</div>
 		</div>

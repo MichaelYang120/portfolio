@@ -5,9 +5,7 @@ import ContentText from "./ContentText";
 import ContentTextArr from "./ContentTextArr";
 
 // this component is a divided component that is split, left half will consist of an image, where the right have will have text content 
-
 export default function ParallaxContent(headingtext:string, infotext:string | string[] | null, defaultheight:string="150vh", lights2:string=defaultimage) {
-// export default function ParallaxContent(headingtext:string, infotext:string|Array<string>, defaultheight:string="150vh", lights2:string=defaultimage) {
 	const titlestyle = {
 		textAlign: "center" as "center",
 		padding: "2em 0em",
@@ -71,23 +69,6 @@ export default function ParallaxContent(headingtext:string, infotext:string | st
 		padding:"40px 60px"
 	}
 
-	// const projectarr = [
-	// 	{
-	// 		name:"mortgate calculator",
-	// 		description:"testing"
-	// 	},
-	// 	{
-	// 		name:"testing",
-	// 		description:"more testing"
-	// 	}
-	// ]
-
-	// projectarr.map((key) => {
-	// 	console.log(key["name"])
-	// 	console.log(key["description"])
-		
-	// })
-
 	if (typeof(infotext) === "string") {
 		return (
 			<>
@@ -127,12 +108,7 @@ export default function ParallaxContent(headingtext:string, infotext:string | st
 						</div>
 						<div style={infoboxarraystyle}>
 							<SkillsIcons />
-							{/* {infotext.map((value) => 
-								<p>{value}<br/></p>
-							)} */}
-							{/* <ContentText/> */}
 							{infotext !== null ? ContentText(infotext) : ContentTextArr()}
-							{/* {ContentText(infotext) === null ? ContentText(infotext) : ContentTextArr()} */}
 						</div>
 					</div>
 				</div>

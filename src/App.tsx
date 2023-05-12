@@ -41,9 +41,8 @@ function App() {
       {ParallaxScroll(techimage, titletext)} {/* landing page, with text */} 
       {/* parallaxconente is a divided section */}
       {ParallaxContent("about me", aboutmetext, "100vh", aboutmeimg)}
-      {ParallaxContent("my projects", aboutmetext, "100vh", lights)}
-      {ParallaxContent("Test block", null, "100vh", lights)}
-      {/* {ParallaxContent("my projects", projectarr, "100vh", lights)} */}
+      {ParallaxContent("my projects", null, "100vh", lights)}
+      {/* {ParallaxContent("Test block", null, "100vh", lights)} */}
       {ParallaxScroll(codescreen, "")}
       {/* {Main(headingtext2, laptop)} */}
       <Footer/>

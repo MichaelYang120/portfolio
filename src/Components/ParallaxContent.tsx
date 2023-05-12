@@ -107,7 +107,7 @@ export default function ParallaxContent(headingtext:string, infotext:string | st
 							</div>
 						</div>
 						<div style={infoboxarraystyle}>
-							<SkillsIcons />
+							{infotext !== null ? <SkillsIcons /> : ""}
 							{infotext !== null ? ContentText(infotext) : ContentTextArr()}
 						</div>
 					</div>

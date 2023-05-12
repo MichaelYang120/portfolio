@@ -23,17 +23,6 @@ const aboutmetext = ["As a self-taught software engineer/developer, I have alway
 
 "Ultimately, what motivates me as a software engineer is the opportunity to make a difference. I believe that software has the power to transform lives and change the world, and I am committed to using my skills and knowledge to make a positive impact. Whether it's developing a new application or improving an existing system, I am passionate about creating software that makes a difference in people's lives."]
 
-	const projectarr = [
-		{
-			name:"mortgate calculator",
-			description:"testing"
-		},
-		{
-			name:"testing",
-			description:"more testing"
-		}
-	]
-
 function App() {
   return (
     <>

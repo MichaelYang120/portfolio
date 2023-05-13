@@ -38,7 +38,8 @@ export default function ParallaxContent(headingtext:string, infotext:string | st
 		top:"0",
 		height:"100vh",
 		maxWidth:"50%",
-		width:"50%"
+		width:"50%",
+		display: "initial"
 	}
     
 	const infoboxcontainerstyle = {
@@ -72,8 +73,8 @@ export default function ParallaxContent(headingtext:string, infotext:string | st
 	if (typeof(infotext) === "string") {
 		return (
 			<>
-				<div style={contentstyle}>
-					<img src={lights2} alt="blurbg" style={mainstyles}/>
+				<div style={contentstyle} className="maincontainer">
+					<img className="imgparallaxcontent" src={lights2} alt="blurbg" style={mainstyles}/>
 					<div style={infoboxcontainerstyle}>
 						<div style={titlestyle}>
 							<div
@@ -94,9 +95,9 @@ export default function ParallaxContent(headingtext:string, infotext:string | st
 	} else {
 		return (
 			<>
-				<div style={contentstyle}>
-					<img src={lights2} alt="blurbg" style={mainstyles}/>
-					<div style={infoboxcontainerstyle}>
+				<div style={contentstyle} className="maincontainer">
+					<img className="imgparallaxcontent" src={lights2} alt="blurbg" style={mainstyles}/>
+					<div className="infoboxcontainer" style={infoboxcontainerstyle}>
 						<div style={titlestyle}>
 							<div
 								id="title"
@@ -106,7 +107,7 @@ export default function ParallaxContent(headingtext:string, infotext:string | st
 								{headingtext}
 							</div>
 						</div>
-						<div style={infoboxarraystyle}>
+						<div style={infoboxarraystyle} className="contentcontainer">
 							{infotext !== null ? <SkillsIcons /> : ""}
 							{infotext !== null ? ContentText(infotext) : ContentTextArr()}
 						</div>

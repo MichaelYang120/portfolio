@@ -59,3 +59,58 @@
 #progressBar {
   height: 10px;
 }
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 480px) {
+/* Styles */
+  .imgparallaxcontent {
+    display: none !important;
+  }
+  .infoboxcontainer {
+    width:90% !important;
+		float:none !important;
+  }
+  .contentcontainer {
+    padding: 0 !important;
+  }
+  .maincontainer{
+    display: inline-block !important;
+  }
+}
+
+/* Smartphones (landscape) ----------- */
+@media only screen
+and (min-width : 321px) {
+/* Styles */
+  .imgparallaxcontent {
+    /* display: none !important; */
+  }
+  .infoboxcontainer {
+    /* width:90% !important;
+		float:none !important; */
+  }
+  .contentcontainer {
+    /* padding: 0 !important; */
+  }
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen
+and (max-width : 320px) {
+/* Styles */
+  .imgparallaxcontent {
+    /* display: none !important; */
+  }
+  .infoboxcontainer {
+    width:90% !important;
+		float:none !important;
+  }
+  .contentcontainer {
+    padding: 0 !important;
+  }
+  .maincontainer{
+    display: inline-block !important;
+  }
+}

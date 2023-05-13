@@ -38,7 +38,7 @@ export default function ContentTextArr(infotext:any=test) {
 // export default function ContentTextArr(infotext:Array<string|object>) {
 
     const containerstyle = {
-        marginBottom:"55px"
+        marginBottom:"20px"
     }
 
     const projectheadingstyle = {
@@ -57,11 +57,11 @@ export default function ContentTextArr(infotext:any=test) {
     }
 
     const textstyle = {
-        marginBottom:"40px"
+        marginBottom:"20px"
     }
 
     const btnstylecontainer = {
-        marginBottom:"40px"
+        marginBottom:"20px"
     }
 
 	return (

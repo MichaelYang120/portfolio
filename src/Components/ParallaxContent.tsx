@@ -46,7 +46,7 @@ export default function ParallaxContent(headingtext:string, infotext:string | st
 		float:"right" as "right",
         background:"white",
         margin:"0 auto 0 auto",
-		boxShadow:"2px 6px 10px -2px rgba(0,0,0,0.79)",
+		// boxShadow:"2px 6px 10px -2px rgba(0,0,0,0.79)",
 		height:"100vh",
 
 	}

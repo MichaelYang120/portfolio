@@ -25,13 +25,19 @@ export default function Footer() {
 			<div>Contact Me</div>
 			<div style={mainiconcontainerstyle}>
 				<span style={iconcontainer}>
+					<a href="https://github.com/MichaelYang120/">
 					{(githubIcon("43px"))}
+					</a>
 				</span>
 				<span style={iconcontainer}>
+					<a href="https://www.linkedin.com/in/michaelyang2023/">
 					{(linkedinIcon("43px"))}
+					</a>
 				</span>
 				<span style={iconcontainer}>
+					<a href="mailto:michaelyangiscoding@gmail.com">
 					{(emailIcon("30px"))}
+					</a>
 				</span>
 			</div>
 			<div>© 2023 MichaelYang.io. All rights reserved.</div>

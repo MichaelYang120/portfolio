@@ -65,23 +65,23 @@ export default function Main(headingtext="", mainbgimage=lights, infotext:Array<
 			<>
 				<div>
 					<img src={mainbgimage} style={mainstyles} alt="blurbg"/>
-						<div style={contentstyle}>
-							<div style={infoboxcontainerstyle}>
-								<div style={titlestyle}>
-									<div
-										id="title"
-										className="title"
-										style={titletextstyle}
-									>
-										{headingtext}
-									</div>
+					<div style={contentstyle}>
+						<div style={infoboxcontainerstyle}>
+							<div style={titlestyle}>
+								<div
+									id="title"
+									className="title"
+									style={titletextstyle}
+								>
+									{headingtext}
 								</div>
-								<div style={infoboxstlye}>{infotext}</div>
-								<div style={infoboxstlye}>{infotext}</div>
-								<div style={infoboxstlye}>{infotext}</div>
-								<div style={infoboxstlye}>{infotext}</div>
 							</div>
+							<div style={infoboxstlye}>{infotext}</div>
+							<div style={infoboxstlye}>{infotext}</div>
+							<div style={infoboxstlye}>{infotext}</div>
+							<div style={infoboxstlye}>{infotext}</div>
 						</div>
+					</div>
 				</div>
 			</>
 		);
@@ -92,24 +92,24 @@ export default function Main(headingtext="", mainbgimage=lights, infotext:Array<
 			<>
 				<div>
 					<img src={lights} style={mainstyles} alt="blurbg"/>
-						<div style={contentstyle}>
-							<div style={infoboxcontainerstyle}>
-								<div style={titlestyle}>
-									<div
-										id="title"
-										className="title"
-										style={titletextstyle}
-									>
-										{headingtext}
-									</div>
-								</div>
-								<div style={infoboxarraystyle}>
-									{infotext.map((word:any) => (
-										<p>{word}<br/></p>
-									))}
+					<div style={contentstyle}>
+						<div style={infoboxcontainerstyle}>
+							<div style={titlestyle}>
+								<div
+									id="title"
+									className="title"
+									style={titletextstyle}
+								>
+									{headingtext}
 								</div>
 							</div>
+							<div style={infoboxarraystyle}>
+								{infotext.map((word:any) => (
+									<p>{word}<br/></p>
+								))}
+							</div>
 						</div>
+					</div>
 				</div>
 			</>
 		);

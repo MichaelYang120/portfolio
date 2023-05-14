@@ -24,7 +24,7 @@ export function ParallaxScroll(imageurl:any, titletext:string|Array<string>, vhs
 	if ((typeof(titletext) === "string")) {
 		return (
 			<>
-				<div style={backgroundimagestyle}>
+				<div className="imagescrollcontainer" style={backgroundimagestyle}>
 					{titletext !== "" ? <div style={textstyle}>{titletext}</div> : ""}
 				</div>
 			</>
@@ -33,7 +33,7 @@ export function ParallaxScroll(imageurl:any, titletext:string|Array<string>, vhs
 	} else {
 		return (
 			<>
-				<div style={backgroundimagestyle}>
+				<div className="imagescrollcontainer" style={backgroundimagestyle}>
 					{titletext.map((word:any) => (
 						<div style={textstyle}>{titletext}</div>
 					))}

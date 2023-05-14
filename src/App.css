@@ -78,6 +78,9 @@ and (max-device-width : 480px) {
   .maincontainer{
     display: inline-block !important;
   }
+  .imagescrollcontainer {
+    margin-top: 60px !important;
+  }
 }
 
 /* Smartphones (landscape) ----------- */
@@ -113,6 +116,9 @@ and (max-width : 320px) {
   .maincontainer{
     display: inline-block !important;
   }
+  .imagescrollcontainer {
+    margin-top: 60px !important;
+  }
 }
 /* max laptop screen */
 @media only screen
@@ -130,5 +136,8 @@ and (max-width : 1579px) {
   }
   .maincontainer{
     display: inline-block !important;
+  }
+  .imagescrollcontainer {
+    /* margin-top: 60px !important; */
   }
 }

@@ -78,8 +78,8 @@ and (max-device-width : 480px) {
   .maincontainer{
     display: inline-block !important;
   }
-  .imagescrollcontainer {
-    margin-top: 60px !important;
+  .projectscontainer {
+    padding-bottom: 20px;
   }
 }
 
@@ -116,8 +116,8 @@ and (max-width : 320px) {
   .maincontainer{
     display: inline-block !important;
   }
-  .imagescrollcontainer {
-    margin-top: 60px !important;
+  .projectscontainer {
+    padding-bottom: 20px;
   }
 }
 /* max laptop screen */
@@ -137,7 +137,7 @@ and (max-width : 1579px) {
   .maincontainer{
     display: inline-block !important;
   }
-  .imagescrollcontainer {
-    /* margin-top: 60px !important; */
-  }
+  /* .projectscontainer {
+    padding-bottom: 20px;
+  } */
 }

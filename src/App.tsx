@@ -8,10 +8,10 @@ import ProgressBar from './Components/ProgressBar';
 // images
 import techimage from "./Assets/ramiro-mendes-CjS3QsRuxnE-unsplash.jpg";
 import codescreen from "./Assets/kevin-bhagat-zNRITe8NPqY-unsplash.jpg";
-import lights from "./Assets/goran-ivos-iacpoKgpBAM-unsplash.jpg";
-// import lights from "./Assets/georgie-cobbs-muOHbrFGEQY-unsplash.jpg";
-// import aboutmeimg from "./Assets/altumcode-FoTs3ntRoIs-unsplash.jpg"
-import aboutmeimg from "./Assets/jeshoots-com-pUAM5hPaCRI-unsplash.jpg"
+// import lights from "./Assets/goran-ivos-iacpoKgpBAM-unsplash.jpg";
+import lights from "./Assets/georgie-cobbs-muOHbrFGEQY-unsplash.jpg";
+import aboutmeimg from "./Assets/altumcode-FoTs3ntRoIs-unsplash.jpg"
+// import aboutmeimg from "./Assets/jeshoots-com-pUAM5hPaCRI-unsplash.jpg"
 
 const titletext = "Come with me and explore my developer journey";
 

@@ -1,6 +1,5 @@
 import React from "react";
-import defaultimage from "../Assets/goran-ivos-iacpoKgpBAM-unsplash.jpg"
-// import defaultimage from "../Assets/altumcode-FoTs3ntRoIs-unsplash.jpg"
+import defaultimage from "../Assets/altumcode-FoTs3ntRoIs-unsplash.jpg"
 import {SkillsIcons} from "./SkillsIcons"
 import ContentText from "./ContentText";
 import ContentTextArr from "./ContentTextArr";

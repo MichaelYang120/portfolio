@@ -82,7 +82,7 @@ and (max-device-width : 480px) {
     margin-top: 60px !important;
   } */
   .projectscontainer {
-    padding-bottom: 20px;
+    padding-bottom: 20px !important;
   }
 }
 
@@ -120,7 +120,7 @@ and (max-width : 320px) {
     display: inline-block !important;
   }
   .projectscontainer {
-    padding-bottom: 20px;
+    padding-bottom: 20px !important;
   }
 }
 /* max laptop screen */

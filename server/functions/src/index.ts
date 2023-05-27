@@ -23,7 +23,7 @@ import {addEntry} from "./entryController.ts";
 
 const app = express();
 
-app.get("/", (req, res) => res.status(200).send("Hey there!"));
+app.get("/", (req, res) => res.status(200).send("Silence is Golden"));
 app.post("/entries", addEntry);
 
 exports.app = functions.https.onRequest(app);

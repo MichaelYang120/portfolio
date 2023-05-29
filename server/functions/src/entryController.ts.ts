@@ -55,6 +55,9 @@ const updateEntry = async (req: Request, res: Response) => {
     const currentData = (await entry.get()).data() || {};
 
     const entryObject = {
+      id: entryId,
+      timestamp: currentData.timestamp,
+      revision: new Date,
       title: title || currentData.title,
       text: text || currentData.text,
     };

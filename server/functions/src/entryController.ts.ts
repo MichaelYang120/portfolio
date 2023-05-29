@@ -23,6 +23,7 @@ const addEntry = async (req: Request, res: Response) => {
     };
 
     entry.set(entryObject);
+    // await entry.set(entryObject);
 
     res.status(200).send({
       status: "success",
@@ -34,4 +35,15 @@ const addEntry = async (req: Request, res: Response) => {
   }
 };
 
-export {addEntry};
+const getAllEntries = async (req: Request, res: Response) => {
+  try {
+    const allEntries: EntryType[] = [];
+    const querySnapshot = await db.collection("entries").get();
+    querySnapshot.forEach((doc: any) => allEntries.push(doc.data()));
+    return res.status(200).json(allEntries);
+  } catch (error:any) {
+    return res.status(500).json(error.message);
+  }
+};
+
+export {addEntry, getAllEntries};

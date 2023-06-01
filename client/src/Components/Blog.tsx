@@ -4,15 +4,18 @@ export default function Blog() {
 
 	const submitText = (event:React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
-		console.log(event)
+		console.log(event);
 		async function postJSON(data:any) {
 			try {
 			  const response = await fetch("https://us-central1-portfolio-f4982.cloudfunctions.net/app/entries", {
 				mode: 'no-cors',
 				method: "POST", // or 'PUT'
 				headers: {
-				  "Content-Type": "application/json",
-				  'Accept': 'application/json, text/plain, */*',
+					"Content-Type": "application/json",
+					'Accept': '*/*',
+					"Access-Control-Allow-Origin": "*",
+					"Cache-Control": "no-cache",
+					"Access-Control-Allow-Credentials" : "true",
 				},
 				body: JSON.stringify(data),
 			  });
@@ -23,7 +26,7 @@ export default function Blog() {
 			} catch (error) {
 			  console.error("Error:", error);
 			}
-		  }
+		  };
 		  
 		  const data = { title: "", text: "" };
 		  postJSON(data);

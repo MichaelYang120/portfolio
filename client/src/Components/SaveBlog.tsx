@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
-export default function Blog() {
+export default function SaveBlog() {
+	// mid end file that allows you to save your blog updates to firebase cloud
 	const [tmpTitle, setTmpTitle] = useState("");
 	const [tmpText, setTmpText] = useState("");
 
@@ -40,11 +41,19 @@ export default function Blog() {
 		}
 		const data = { title: tmpTitle, text: regreplaceText };
 		postJSON(data);
+
+
 	}
+
+	// styles
+	const blogsummitform = {
+
+	}
+	
 	return (
 			<>
 				<div>
-					<form onSubmit={submitText} >
+					<form style={blogsummitform} onSubmit={submitText} >
 						<input type="text" id="title" placeholder="title" value={tmpTitle} onChange={(e: React.ChangeEvent<HTMLInputElement>) => {setTmpTitle(e.target.value)}}/>
 						<textarea name="paragraph_text" id="text" placeholder="text" value={tmpText} onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => {setTmpText(e.target.value)}}/>
 						<input type="submit" id="textsubmit" placeholder="Submit"/>

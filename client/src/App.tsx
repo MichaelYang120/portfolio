@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
-import Footer from './Components/Footer';
-import Blog from './Components/Blog';
+import SaveBlog from './Components/SaveBlog';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Users from './Screens/Users';
 
@@ -11,7 +10,7 @@ function App() {
       <Router>
         <Routes>
           <Route path='/' element={<Users/>} />
-          <Route path='/admin' element={<Blog/>} />
+          <Route path='/admin' element={<SaveBlog/>} />
         </Routes>
       </Router>
     </>

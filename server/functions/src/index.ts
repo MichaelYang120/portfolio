@@ -30,9 +30,17 @@ import {
 
 const app = express();
 
-app.use(cors({
-  origin: "*",
-}));
+// app.use(cors({
+//   origin: "*",
+// }));
+
+const corsOptions = {
+  // added localhost:3000 for development
+  origin: ["https://michaelyang.dev", "http://localhost:3000"],
+  optionsSuccessStatus: 200, // For legacy browser support
+};
+
+app.use(cors(corsOptions));
 
 app.get("/", (req, res) => res.status(200).send("Silence is Golden"));
 app.post("/entries", addEntry);

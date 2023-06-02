@@ -25,9 +25,12 @@ export default function Blog() {
 			}
 		};
 		// console.log(title)
-		// console.log(text)
-		  
-		const data = { title: tmpTitle, text: tmpText };
+		// console.log(tmpText)
+		
+		// added regreplace for new line characters
+		const regreplaceText = tmpText.replace("\n", "/\n\/")
+		// console.log(regreplace)
+		const data = { title: tmpTitle, text: regreplaceText };
 		postJSON(data);
 	}
 	return (
@@ -35,7 +38,9 @@ export default function Blog() {
 				<div>
 					<form onSubmit={submitText} >
 						<input type="text" id="title" placeholder="title" value={tmpTitle} onChange={(e: React.ChangeEvent<HTMLInputElement>) => {setTmpTitle(e.target.value)}}/>
-						<input type="text" id="text" placeholder="text" value={tmpText} onChange={(e: React.ChangeEvent<HTMLInputElement>) => {setTmpText(e.target.value)}}/>
+						<textarea name="paragraph_text" id="text" placeholder="text" value={tmpText} onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => {setTmpText(e.target.value)}}/>
+						
+						{/* <input type="text" id="text" placeholder="text" value={tmpText} onChange={(e: React.ChangeEvent<HTMLInputElement>) => {setTmpText(e.target.value)}}/> */}
 						<input type="submit" id="textsubmit" placeholder="Submit"/>
 					</form>
 				</div>

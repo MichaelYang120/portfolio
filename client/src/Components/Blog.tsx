@@ -1,23 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function Blog() {
+	const [tmpTitle, setTmpTitle] = useState("");
+	const [tmpText, setTmpText] = useState("");
 
 	const submitText = (event:React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
-		console.log(event);
+		// console.log(event);
 		async function postJSON(data:any) {
 			try {
-			  const response = await fetch("https://us-central1-portfolio-f4982.cloudfunctions.net/app/entries", {
-				method: "POST", // or 'PUT'
-				headers: {
-					"Content-Type": "application/json",
-					'Accept': '*/*',
-					// "Access-Control-Allow-Origin": "*",
-					// "Cache-Control": "no-cache",
-					// "Access-Control-Allow-Credentials" : "true",
-				},
-				body: JSON.stringify(data),
-			  });
+				const response = await fetch("https://us-central1-portfolio-f4982.cloudfunctions.net/app/entries", {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json",
+					},
+					body: JSON.stringify(data),
+				});
 			  console.log(JSON.stringify(data))
 		  
 			  const result = await response.json();
@@ -25,17 +23,19 @@ export default function Blog() {
 			} catch (error) {
 			  console.error("Error:", error);
 			}
-		  };
+		};
+		// console.log(title)
+		// console.log(text)
 		  
-		  const data = { title: "", text: "" };
-		  postJSON(data);
+		const data = { title: tmpTitle, text: tmpText };
+		postJSON(data);
 	}
 	return (
 			<>
 				<div>
 					<form onSubmit={submitText} >
-						<input type="text" id="title" placeholder="title" />
-						<input type="text" id="text" placeholder="text" />
+						<input type="text" id="title" placeholder="title" value={tmpTitle} onChange={(e: React.ChangeEvent<HTMLInputElement>) => {setTmpTitle(e.target.value)}}/>
+						<input type="text" id="text" placeholder="text" value={tmpText} onChange={(e: React.ChangeEvent<HTMLInputElement>) => {setTmpText(e.target.value)}}/>
 						<input type="submit" id="textsubmit" placeholder="Submit"/>
 					</form>
 				</div>

@@ -4,9 +4,11 @@ export default function Blog() {
 	const [tmpTitle, setTmpTitle] = useState("");
 	const [tmpText, setTmpText] = useState("");
 
+	// debug
+	const debug = false;
+
 	const submitText = (event:React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
-		// console.log(event);
 		async function postJSON(data:any) {
 			try {
 				const response = await fetch("https://us-central1-portfolio-f4982.cloudfunctions.net/app/entries", {
@@ -24,9 +26,12 @@ export default function Blog() {
 			  console.error("Error:", error);
 			}
 		};
-		// console.log(title)
-		// console.log(tmpText)
-		
+		if(debug) {
+			console.log(tmpTitle)
+			console.log(tmpText)
+
+		}
+
 		// added regreplace for new line characters
 		const regreplaceText = tmpText.replace("\n", "/\n\/")
 		// console.log(regreplace)
@@ -39,8 +44,6 @@ export default function Blog() {
 					<form onSubmit={submitText} >
 						<input type="text" id="title" placeholder="title" value={tmpTitle} onChange={(e: React.ChangeEvent<HTMLInputElement>) => {setTmpTitle(e.target.value)}}/>
 						<textarea name="paragraph_text" id="text" placeholder="text" value={tmpText} onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => {setTmpText(e.target.value)}}/>
-						
-						{/* <input type="text" id="text" placeholder="text" value={tmpText} onChange={(e: React.ChangeEvent<HTMLInputElement>) => {setTmpText(e.target.value)}}/> */}
 						<input type="submit" id="textsubmit" placeholder="Submit"/>
 					</form>
 				</div>

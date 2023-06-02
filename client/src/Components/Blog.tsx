@@ -27,14 +27,17 @@ export default function Blog() {
 			}
 		};
 		if(debug) {
-			console.log(tmpTitle)
-			console.log(tmpText)
+			console.log(tmpTitle);
+			console.log(tmpText);
 
 		}
 
 		// added regreplace for new line characters
 		const regreplaceText = tmpText.replace("\n", "/\n\/")
-		// console.log(regreplace)
+		if(debug) {
+			console.log(regreplaceText);
+
+		}
 		const data = { title: tmpTitle, text: regreplaceText };
 		postJSON(data);
 	}

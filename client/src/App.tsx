@@ -3,6 +3,7 @@ import './App.css';
 import SaveBlog from './Components/SaveBlog';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Users from './Screens/Users';
+import Blog from './Components/Blog';
 
 function App() {
   return (
@@ -10,7 +11,8 @@ function App() {
       <Router>
         <Routes>
           <Route path='/' element={<Users/>} />
-          <Route path='/admin' element={<SaveBlog/>} />
+          <Route path='/adminblog' element={<SaveBlog/>} />
+          <Route path='/test' element={<Blog/>}/>
         </Routes>
       </Router>
     </>

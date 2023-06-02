@@ -40,7 +40,7 @@ export default function Footer() {
 					</a>
 				</span>
 			</div>
-			<div>© 2023 MichaelYang.io. All rights reserved.</div>
+			<div>© 2023 MichaelYang.dev All rights reserved.</div>
 		</div>
 	);
 }

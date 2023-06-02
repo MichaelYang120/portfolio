@@ -19,6 +19,7 @@
 // });
 import * as functions from "firebase-functions";
 import * as express from "express";
+import * as cors from "cors";
 import {
   addEntry,
   getAllEntries,
@@ -26,7 +27,12 @@ import {
   deleteEntry,
 } from "./entryController.ts";
 
+
 const app = express();
+
+app.use(cors({
+  origin: "*",
+}));
 
 app.get("/", (req, res) => res.status(200).send("Silence is Golden"));
 app.post("/entries", addEntry);

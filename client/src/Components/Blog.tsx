@@ -8,14 +8,13 @@ export default function Blog() {
 		async function postJSON(data:any) {
 			try {
 			  const response = await fetch("https://us-central1-portfolio-f4982.cloudfunctions.net/app/entries", {
-				mode: 'no-cors',
 				method: "POST", // or 'PUT'
 				headers: {
 					"Content-Type": "application/json",
 					'Accept': '*/*',
-					"Access-Control-Allow-Origin": "*",
-					"Cache-Control": "no-cache",
-					"Access-Control-Allow-Credentials" : "true",
+					// "Access-Control-Allow-Origin": "*",
+					// "Cache-Control": "no-cache",
+					// "Access-Control-Allow-Credentials" : "true",
 				},
 				body: JSON.stringify(data),
 			  });

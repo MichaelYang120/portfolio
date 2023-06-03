@@ -3,7 +3,6 @@ import { getBlogDetails } from "../Api/ApiRequest";
 
 export default function Blog() {
 	const [blogDetails, setBlogDetails] = useState([]);
-	const [arr, setArr] = useState([]);
 
 	useEffect(() => {
 		async function getBlog() {
@@ -18,45 +17,33 @@ export default function Blog() {
 		return new Date(timestamp * 1000);
 	};
 
-	interface T {
-
-	}
-	const newarray:Array<T> = []
-	blogDetails.forEach(element => {
+	const convertdate = (time:string) => {
 		// convert unix timestamp
-		const timestamp:string = (element["timestamp"]["_seconds"]);
+		const timestamp:string = (time);
 		const ConvertTimeToNumber:number = Number(timestamp);
 		const timeValue:number = ConvertTimeToNumber.valueOf();
-		// const date:Date = new Date(timestamp * 1000);
 		const date:Date = new Date(timeValue * 1000);
 		// desired date convert here
-		const dateposted = date.toDateString()
+		const setdateposted = date.toDateString()
+		return setdateposted;
 		// example output: Thu Jun 01 2023
 
+	}
+
+	const convertNewlineChar = (text:string) => {
 		// convert new line characters for text ex: --n 
-		const text:string = element["text"];
-		const regexText = text.replace("--n", "/\n/");
-
-		const title:string = element["title"];
-
-		var dataset = {"text":regexText, "dateposted":dateposted, "title":title}
-
-		var vartmparr = [dataset]
-		if(vartmparr.length !== 0) {
-			const newarray = [dataset, vartmparr]
-			console.log(newarray);
-		}
-
-	});
-
+		const regexText = text.replace(/--n/g, "\n");
+		return regexText;
+	
+	}
 
 	return (
 		<>
 		{blogDetails.map((value) =>
 			<div>
 				<h2>{value["title"]}</h2>
-				<p>{value["timestamp"]["_seconds"]}</p>
-				<p>{value["text"]}</p>
+				<p>{convertdate(value["timestamp"]["_seconds"])}</p>
+				<pre>{convertNewlineChar(value["text"])}</pre>
 			</div>
 		)}
 		</>

@@ -14,12 +14,36 @@ export default function Blog() {
 		// console.log(blogDetails)
 	}, []);
 
+	const blogcontainer = {
+		display: "flex",
+		width: "100%",
+		maxWidth: "60%",
+		flexDirection: "column" as "column",
+		margin: "auto",
+	}
+
+	const blogheader = {
+		textAlign: "right" as "right",
+		padding: "1em 1em",
+		display:"flex",
+		position: "sticky" as "sticky",
+		top:"0",
+		zIndex:'3',
+		// background:"white",
+		fontSize:"3em",
+		fontWeight:"900",
+		textTransform:"capitalize" as "capitalize",
+		margin:"0 auto",
+		fontStyle: "oblique",
+	}
+
 	return (
 		<>
+		<h1 style={blogheader}>Blog</h1>
 		{blogDetails.map((value) =>
-			<div>
-				<h2>{value["title"]}</h2>
-				<p>{convertdate(value["timestamp"]["_seconds"])}</p>
+			<div style={blogcontainer}>
+				<h2 style={{textAlign:"center", textTransform:"capitalize"}}>{value["title"]}</h2>
+				<p>Posted: {convertdate(value["timestamp"]["_seconds"])}</p>
 				<pre>{convertNewlineChar(value["text"])}</pre>
 			</div>
 		)}

@@ -10,6 +10,7 @@ import techimage from "../Assets/ramiro-mendes-CjS3QsRuxnE-unsplash.jpg";
 import codescreen from "../Assets/kevin-bhagat-zNRITe8NPqY-unsplash.jpg";
 import lights from "../Assets/georgie-cobbs-muOHbrFGEQY-unsplash.jpg";
 import aboutmeimg from "../Assets/altumcode-FoTs3ntRoIs-unsplash.jpg"
+import Blog from '../Components/Blog';
 // import aboutmeimg from "./Assets/jeshoots-com-pUAM5hPaCRI-unsplash.jpg"
 
 const titletext = "Come with me and explore my developer journey";
@@ -36,6 +37,10 @@ function Users() {
         {ParallaxContent("my projects", null, "170vh", lights)}
         </div>
         {/* {ParallaxContent("Test block", null, "100vh", lights)} */}
+        <div style={{background:"antiquewhite", height:"100vh"}}>
+        <Blog/>
+
+        </div>
         {ParallaxScroll(codescreen, "")}
         {/* {Main(headingtext2, laptop)} */}
         <Footer/>

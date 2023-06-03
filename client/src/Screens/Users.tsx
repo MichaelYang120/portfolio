@@ -36,10 +36,13 @@ function Users() {
         {ParallaxContent("my projects", null, "170vh", lights)}
         </div>
         {/* {ParallaxContent("Test block", null, "100vh", lights)} */}
-        <div style={{background:"antiquewhite", height:"100vh"}}>
+
+        {/* commented out for further development */}
+        {/* <div style={{background:"antiquewhite", height:"100vh"}}>
         <Blog/>
 
-        </div>
+        </div> */}
+
         {ParallaxScroll(codescreen, "")}
         {/* {Main(headingtext2, laptop)} */}
         <Footer/>

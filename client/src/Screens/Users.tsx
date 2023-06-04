@@ -10,7 +10,6 @@ import techimage from "../Assets/ramiro-mendes-CjS3QsRuxnE-unsplash.jpg";
 import codescreen from "../Assets/kevin-bhagat-zNRITe8NPqY-unsplash.jpg";
 import lights from "../Assets/georgie-cobbs-muOHbrFGEQY-unsplash.jpg";
 import aboutmeimg from "../Assets/altumcode-FoTs3ntRoIs-unsplash.jpg"
-import Blog from '../Components/Blog';
 
 const titletext = "Come with me and explore my developer journey";
 

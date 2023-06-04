@@ -41,11 +41,13 @@ export default function Blog() {
 		<>
 		<h1 style={blogheader}>Blog</h1>
 		{blogDetails.map((value) =>
+			value["contentEnable"] === true ?
 			<div style={blogcontainer}>
 				<h2 style={{textAlign:"center", textTransform:"capitalize"}}>{value["title"]}</h2>
 				<p>Posted: {convertdate(value["timestamp"]["_seconds"])}</p>
 				<pre>{convertNewlineChar(value["text"])}</pre>
 			</div>
+			: ""
 		)}
 		</>
 	)

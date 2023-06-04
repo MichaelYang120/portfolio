@@ -18,7 +18,7 @@ export default function EditBlog() {
 		width: "100%",
 		maxWidth: "60%",
 		flexDirection: "column" as "column",
-		margin: "auto",
+		margin: "30px auto",
 	}
 
 	const blogheader = {
@@ -28,7 +28,6 @@ export default function EditBlog() {
 		position: "sticky" as "sticky",
 		top:"0",
 		zIndex:'3',
-		// background:"white",
 		fontSize:"3em",
 		fontWeight:"900",
 		textTransform:"capitalize" as "capitalize",
@@ -38,15 +37,22 @@ export default function EditBlog() {
 
 	return (
 		<>
-		<h1 style={blogheader}>Blog</h1>
+		<h1 style={blogheader}>Edit Blog</h1>
 		{blogDetails.map((value) =>
 			<div style={blogcontainer}>
 				<h1 contentEditable="true" style={{textAlign:"center", textTransform:"capitalize"}}>{value["title"]}</h1>
 				<p>Posted: {convertdate(value["timestamp"]["_seconds"])}</p>
+				{/* conditional added to show what is enable for frontend */}
+				{value["contentEnable"] === true ? 
+				<label><input type="checkbox" id={value["id"]} name={value["id"]} checked/><span>Enable Content</span></label> : 
+				<label><input type="checkbox" id={value["id"]} name={value["id"]}/><span>Enable Content</span></label>}
 				<pre contentEditable="true">{convertNewlineChar(value["text"])}</pre>
 				<button>Update</button>
 			</div>
 		)}
+		<div style={blogcontainer}>
+			<button>Update All</button>
+		</div>
 		</>
 	)
 

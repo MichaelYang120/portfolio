@@ -12,6 +12,7 @@ function Admin() {
             <a href="/admin-blog">Submit New Blog</a>
             <a href="/previewblog">Preview Blog</a>
             <a href="/">View Home Page</a>
+            <a href="/editblog">Blog Setting/Update Blog</a>
         </div>
     </>
   );

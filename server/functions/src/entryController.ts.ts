@@ -21,6 +21,7 @@ const addEntry = async (req: Request, res: Response) => {
       timestamp: new Date,
       title,
       text,
+      contentEnable: true,
     };
 
     // entry.set(entryObject);

@@ -7,6 +7,7 @@ export default function EditBlog() {
 	// mid end file that allows you to save your blog updates to firebase cloud
 	const [tmpTitle, setTmpTitle] = useState("");
 	const [tmpText, setTmpText] = useState("");
+	const [tmpCheckStatus, setTmpCheckStatus] = useState(Boolean);
 
 	useEffect(() => {
 		async function getBlog() {
@@ -18,20 +19,36 @@ export default function EditBlog() {
 
 	const debug = false;
 
+	const handleChangeCheckedbox = (event: React.ChangeEvent<HTMLInputElement>) => { 
+		// console.log(event.target.checked)
+		const checkedval = event.target.checked;
+		
+	  };
+
+	// update post
 	const updateblogentry = (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
-		console.log(event)
+		// console.log(event)
+		var postId = event.currentTarget.getAttribute("post-id");
+		// console.log(tmpTitle)
+		// console.log(tmpText)
+		if(tmpTitle === null) {
+			var postTitle = event.currentTarget.getAttribute("post-title");
+
+		} else {
+			postTitle = tmpTitle;
+		}
 		async function postJSON(data:any) {
 			try {
-				const response = await fetch(`https://us-central1-portfolio-f4982.cloudfunctions.net/app/entries/${event}`, {
-					method: "POST",
+				const response = await fetch(`https://us-central1-portfolio-f4982.cloudfunctions.net/app/entries/${postId}`, {
+					method: "PATCH",
 					headers: {
 						"Content-Type": "application/json",
 					},
 					body: JSON.stringify(data),
 				});
 			  console.log(JSON.stringify(data))
-		  
+
 			  const result = await response.json();
 			  console.log("Success:", result);
 			} catch (error) {
@@ -39,19 +56,26 @@ export default function EditBlog() {
 			}
 		};
 		if(debug) {
-			// console.log(tmpTitle);
+			console.log(tmpTitle);
 			// console.log(tmpText);
 
 		}
 
 		// added regreplace for new line characters
-		// const regreplaceText = tmpText.replace(/(\r\n|\n|\r)/gm, "--n")
+		const regreplaceText = tmpText.replace(/(\r\n|\n|\r)/gm, "--n")
 		if(debug) {
-			// console.log(regreplaceText);
+			console.log(regreplaceText);
 
 		}
-		// const data = { title: tmpTitle, text: regreplaceText };
-		// postJSON(data);
+
+		if(tmpCheckStatus !== null) {
+			var data = { title: postTitle, text: regreplaceText, contentEnable: tmpCheckStatus };
+			postJSON(data);
+			
+		} else {
+			var data2 = { title: postTitle, text: regreplaceText};	
+			postJSON(data2);
+		}
 
 	}
 
@@ -82,15 +106,38 @@ export default function EditBlog() {
 		<>
 			<h1 style={blogheader}>Edit Blog</h1>
 			{blogDetails.map((value) =>
-				<form style={blogcontainer} onSubmit={updateblogentry}>
-					<h1 contentEditable="true" suppressContentEditableWarning={true} style={{textAlign:"center", textTransform:"capitalize"}} onChange={(e: React.ChangeEvent<HTMLInputElement>) => {setTmpTitle(e.target.value)}}>{value["title"]}</h1>
+				<form style={blogcontainer} post-id={(value["id"])} post-title={value["title"]} onSubmit={updateblogentry}>
+					<textarea
+						contentEditable="true"
+						suppressContentEditableWarning={true}
+						placeholder="text"
+						style={{
+							textAlign:"center",
+							textTransform:"capitalize"
+							}}
+						onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => {setTmpTitle(e.target.value)}}
+						>
+							{value["title"]}
+					</textarea>
 					{/* conditional added to show what is enable for frontend */}
-					{value["contentEnable"] === true ? 
-					<label><input type="checkbox" id={value["id"]} name={value["id"]} checked/><span>Enable Content</span></label> : 
-					<label><input type="checkbox" id={value["id"]} name={value["id"]}/><span>Enable Content</span></label>}
+					{value["contentEnable"] === true ?
+					<label><input type="checkbox" onChange={(e: React.ChangeEvent<HTMLInputElement>) => {setTmpCheckStatus(e.target.checked)}}
+					checked/><span>Enable Content</span></label> :
+					<label><input type="checkbox" onChange={(e: React.ChangeEvent<HTMLInputElement>) => {setTmpCheckStatus(e.target.checked)}}/><span>Enable Content</span></label>}
 					<p>Posted: {convertdate(value["timestamp"]["_seconds"])}</p>
-					<textarea style={{height:"10em"}} contentEditable={true} suppressContentEditableWarning={true} name="paragraph_text" id="text" placeholder="text" onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => {setTmpText(e.target.value)}}>{convertNewlineChar(value["text"])}</textarea>
-					<input type="submit" value={"Update"}/>
+					<p>Post Id: {(value["id"])}</p>
+					<textarea
+						style={{
+							height:"10em"
+							}}
+						contentEditable={true}
+						suppressContentEditableWarning={true}
+						name="paragraph_text"
+						id="text"
+						placeholder="text"
+						onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => {setTmpText(e.target.value)}}>{convertNewlineChar(value["text"])}
+					</textarea>
+					<input type="submit" value={"Update"} id={value["id"]}/>
 				</form>
 			)}
 			<div style={blogcontainer}>

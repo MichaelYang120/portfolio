@@ -19,12 +19,6 @@ export default function EditBlog() {
 
 	const debug = false;
 
-	const handleChangeCheckedbox = (event: React.ChangeEvent<HTMLInputElement>) => { 
-		// console.log(event.target.checked)
-		const checkedval = event.target.checked;
-		
-	  };
-
 	// update post
 	const updateblogentry = (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
@@ -119,12 +113,12 @@ export default function EditBlog() {
 						>
 							{value["title"]}
 					</textarea>
-					{/* conditional added to show what is enable for frontend */}
-					{value["contentEnable"] === true ?
-					<label><input type="checkbox" onChange={(e: React.ChangeEvent<HTMLInputElement>) => {setTmpCheckStatus(e.target.checked)}}
-					checked/><span>Enable Content</span></label> :
-					<label><input type="checkbox" onChange={(e: React.ChangeEvent<HTMLInputElement>) => {setTmpCheckStatus(e.target.checked)}}/><span>Enable Content</span></label>}
+					<label>
+						<input type="checkbox"  onChange={(e: React.ChangeEvent<HTMLInputElement>) => {setTmpCheckStatus(e.target.checked)}} defaultChecked={value["contentEnable"]}/>
+						Enable Content
+					</label>
 					<p>Posted: {convertdate(value["timestamp"]["_seconds"])}</p>
+					{value["revision"] !== null ? <p>Revision: {convertdate(value["revision"]["_seconds"])}</p> : ""}
 					<p>Post Id: {(value["id"])}</p>
 					<textarea
 						style={{

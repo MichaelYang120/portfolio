@@ -4,7 +4,8 @@ import {db} from "./config/firebase";
 type EntryType = {
   title: string,
   text: string,
-  coverImageUrl: string
+  coverImageUrl: string,
+  contentEnable: boolean,
   }
 
 type Request = {
@@ -49,7 +50,7 @@ const getAllEntries = async (req: Request, res: Response) => {
 };
 
 const updateEntry = async (req: Request, res: Response) => {
-  const {body: {text, title}, params: {entryId}} = req;
+  const {body: {text, title, contentEnable}, params: {entryId}} = req;
 
   try {
     const entry = db.collection("entries").doc(entryId);
@@ -61,6 +62,7 @@ const updateEntry = async (req: Request, res: Response) => {
       revision: new Date,
       title: title || currentData.title,
       text: text || currentData.text,
+      contentEnable: contentEnable || currentData.contentEnable,
     };
 
     await entry.set(entryObject).catch((error) => {

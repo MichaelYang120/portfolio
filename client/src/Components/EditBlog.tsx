@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getBlogDetails, updatePost } from "../Api/ApiRequest";
+import { deletePost, getBlogDetails, updatePost } from "../Api/ApiRequest";
 import { convertNewlineChar, convertdate } from "../Includes/Functions";
 
 export default function EditBlog() {
@@ -39,7 +39,6 @@ export default function EditBlog() {
 			const regreplaceText = tmpText.replace(/(\r\n|\n|\r)/gm, "--n")
 			if(debug) {
 				console.log(regreplaceText);
-
 			}
 
 			if(tmpCheckStatus !== null) {
@@ -50,6 +49,10 @@ export default function EditBlog() {
 				var data2 = { title: postTitle, text: regreplaceText};	
 				updatePost(data2, postId);
 			}
+		}
+
+		if(submitButton === "deleteblogentry") {
+			deletePost(postId);
 		}
 
 	}

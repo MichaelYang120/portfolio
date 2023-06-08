@@ -31,3 +31,19 @@ export async function updatePost(data:any, postId:string|null) {
       console.error("Error:", error);
     }
 }
+
+export async function deletePost(postId:string|null) {
+    try {
+        const response = await fetch(`https://us-central1-portfolio-f4982.cloudfunctions.net/app/entries/${postId}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+
+      const result = await response.json();
+      console.log("Success:", result);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+}

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getBlogDetails } from "../Api/ApiRequest";
+import { getBlogDetails, updatePost } from "../Api/ApiRequest";
 import { convertNewlineChar, convertdate } from "../Includes/Functions";
 
 export default function EditBlog() {
@@ -7,6 +7,7 @@ export default function EditBlog() {
 	// mid end file that allows you to save your blog updates to firebase cloud
 	const [tmpTitle, setTmpTitle] = useState("");
 	const [tmpText, setTmpText] = useState("");
+	const [submitButton, setSubmitButton] = useState("");
 	const [tmpCheckStatus, setTmpCheckStatus] = useState(Boolean);
 
 	useEffect(() => {
@@ -20,9 +21,9 @@ export default function EditBlog() {
 	const debug = false;
 
 	// update post
-	const updateblogentry = (event: React.FormEvent<HTMLFormElement>) => {
+	const updateblog = (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
-		// console.log(event)
+		console.log(submitButton)
 		var postId = event.currentTarget.getAttribute("post-id");
 		// console.log(tmpTitle)
 		// console.log(tmpText)
@@ -32,43 +33,23 @@ export default function EditBlog() {
 		} else {
 			postTitle = tmpTitle;
 		}
-		async function postJSON(data:any) {
-			try {
-				const response = await fetch(`https://us-central1-portfolio-f4982.cloudfunctions.net/app/entries/${postId}`, {
-					method: "PATCH",
-					headers: {
-						"Content-Type": "application/json",
-					},
-					body: JSON.stringify(data),
-				});
-			  console.log(JSON.stringify(data))
 
-			  const result = await response.json();
-			  console.log("Success:", result);
-			} catch (error) {
-			  console.error("Error:", error);
+		if(submitButton === "updateblogentry") {
+			// added regreplace for new line characters
+			const regreplaceText = tmpText.replace(/(\r\n|\n|\r)/gm, "--n")
+			if(debug) {
+				console.log(regreplaceText);
+
 			}
-		};
-		if(debug) {
-			console.log(tmpTitle);
-			// console.log(tmpText);
 
-		}
-
-		// added regreplace for new line characters
-		const regreplaceText = tmpText.replace(/(\r\n|\n|\r)/gm, "--n")
-		if(debug) {
-			console.log(regreplaceText);
-
-		}
-
-		if(tmpCheckStatus !== null) {
-			var data = { title: postTitle, text: regreplaceText, contentEnable: tmpCheckStatus };
-			postJSON(data);
-			
-		} else {
-			var data2 = { title: postTitle, text: regreplaceText};	
-			postJSON(data2);
+			if(tmpCheckStatus !== null) {
+				var data = { title: postTitle, text: regreplaceText, contentEnable: tmpCheckStatus };
+				updatePost(data, postId);
+				
+			} else {
+				var data2 = { title: postTitle, text: regreplaceText};	
+				updatePost(data2, postId);
+			}
 		}
 
 	}
@@ -100,7 +81,7 @@ export default function EditBlog() {
 		<>
 			<h1 style={blogheader}>Edit Blog</h1>
 			{blogDetails.map((value) =>
-				<form style={blogcontainer} post-id={(value["id"])} post-title={value["title"]} onSubmit={updateblogentry}>
+				<form style={blogcontainer} post-id={(value["id"])} post-title={value["title"]} onSubmit={updateblog}>
 					<textarea
 						contentEditable="true"
 						suppressContentEditableWarning={true}
@@ -131,7 +112,8 @@ export default function EditBlog() {
 						placeholder="text"
 						onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => {setTmpText(e.target.value)}}>{convertNewlineChar(value["text"])}
 					</textarea>
-					<input type="submit" value={"Update"} id={value["id"]}/>
+					<input type="submit" value="Update" id={value["id"]} onClick={() => setSubmitButton('updateblogentry')} name="updateblogentry"/>
+					<input type="submit" value="Delete" id={value["id"]} onClick={() => setSubmitButton('deleteblogentry')} name="deleteblogentry"/>
 				</form>
 			)}
 			<div style={blogcontainer}>

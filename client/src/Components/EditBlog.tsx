@@ -25,8 +25,11 @@ export default function EditBlog() {
 		event.preventDefault();
 		console.log(submitButton)
 		var postId = event.currentTarget.getAttribute("post-id");
-		// console.log(tmpTitle)
-		// console.log(tmpText)
+		if(debug) {
+			console.log(tmpTitle)
+			console.log(tmpText)
+
+		}
 		if(tmpTitle === null) {
 			var postTitle = event.currentTarget.getAttribute("post-title");
 
@@ -57,6 +60,32 @@ export default function EditBlog() {
 
 	}
 
+	const updateAll = () => {
+		const blog = document.querySelectorAll("#blog");
+		console.log(blog)
+		blog.forEach(Element => {
+			console.log(Element.getAttribute("post-id"))
+			const postId = Element.getAttribute("post-id");
+			const title = document.getElementById("title")?.innerHTML;
+			const text = document.getElementById("text")?.innerHTML;
+			const checkedstatus = (document.querySelector("#checkbox") as HTMLInputElement | null)?.checked;
+
+			const regreplaceText = text?.replace(/(\r\n|\n|\r)/gm, "--n")
+			if(debug) {
+				console.log(regreplaceText);
+			}
+
+			if(tmpCheckStatus !== null) {
+				var data = { title: title, text: regreplaceText, contentEnable: checkedstatus };
+				updatePost(data, postId);
+				
+			} else {
+				var data2 = { title: title, text: regreplaceText};	
+				updatePost(data2, postId);
+			}
+		})
+	}
+
 	// styles
 	const blogcontainer = {
 		display: "flex",
@@ -84,8 +113,10 @@ export default function EditBlog() {
 		<>
 			<h1 style={blogheader}>Edit Blog</h1>
 			{blogDetails.map((value) =>
-				<form style={blogcontainer} post-id={(value["id"])} post-title={value["title"]} onSubmit={updateblog}>
+				<form id="blog" style={blogcontainer} post-id={(value["id"])} post-title={value["title"]} onSubmit={updateblog}>
 					<textarea
+						id="title"
+						className="title"
 						contentEditable="true"
 						suppressContentEditableWarning={true}
 						placeholder="text"
@@ -98,7 +129,7 @@ export default function EditBlog() {
 							{value["title"]}
 					</textarea>
 					<label>
-						<input type="checkbox"  onChange={(e: React.ChangeEvent<HTMLInputElement>) => {setTmpCheckStatus(e.target.checked)}} defaultChecked={value["contentEnable"]}/>
+						<input type="checkbox" id="checkbox" onChange={(e: React.ChangeEvent<HTMLInputElement>) => {setTmpCheckStatus(e.target.checked)}} defaultChecked={value["contentEnable"]}/>
 						Enable Content
 					</label>
 					<p>Posted: {convertdate(value["timestamp"]["_seconds"])}</p>
@@ -112,6 +143,7 @@ export default function EditBlog() {
 						suppressContentEditableWarning={true}
 						name="paragraph_text"
 						id="text"
+						className="text"
 						placeholder="text"
 						onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => {setTmpText(e.target.value)}}>{convertNewlineChar(value["text"])}
 					</textarea>
@@ -120,7 +152,7 @@ export default function EditBlog() {
 				</form>
 			)}
 			<div style={blogcontainer}>
-				<button>Update All</button>
+				<button onClick={updateAll}>Update All</button>
 			</div>
 		</>
 	)

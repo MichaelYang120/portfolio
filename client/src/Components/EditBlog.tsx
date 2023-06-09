@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, HtmlHTMLAttributes } from "react";
 import { deletePost, getBlogDetails, updatePost } from "../Api/ApiRequest";
 import { convertNewlineChar, convertdate } from "../Includes/Functions";
 
@@ -20,7 +20,7 @@ export default function EditBlog() {
 
 	const debug = false;
 
-	// update post
+	// update post //delete post //update all
 	const updateblog = (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
 		console.log(submitButton)
@@ -60,28 +60,33 @@ export default function EditBlog() {
 
 	}
 
-	const updateAll = () => {
-		const blog = document.querySelectorAll("#blog");
-		console.log(blog)
-		blog.forEach(Element => {
-			console.log(Element.getAttribute("post-id"))
-			const postId = Element.getAttribute("post-id");
-			const title = document.getElementById("title")?.innerHTML;
-			const text = document.getElementById("text")?.innerHTML;
-			const checkedstatus = (document.querySelector("#checkbox") as HTMLInputElement | null)?.checked;
+	const updateAll = (event: React.FormEvent<HTMLFormElement>) => {
+		event.preventDefault();
+		const blog = event.target;
+		const blogChildNodes = (blog as HTMLInputElement).childNodes
+		console.log(blogChildNodes)
 
-			const regreplaceText = text?.replace(/(\r\n|\n|\r)/gm, "--n")
-			if(debug) {
-				console.log(regreplaceText);
-			}
+		blogChildNodes.forEach(Element => {
+			var target:any = ((Element as HTMLFormElement).elements);
+			if(typeof(target != "undefined")) {
+				console.log(target)
+				if(typeof(target.postvalue.value) !== "undefined" || target.postvalue.value !== null) {
+					const tmppostid = target.postvalue.value;
+					const tmptitle = target.title.value;
+					const tmptext = target.text.value;
+					const tmpcheckstatusvalue = target.checkbox.checked;
+	
+					const regreplaceText = tmptext?.replace(/(\r\n|\n|\r)/gm, "--n");
+					if(debug) {
+						// console.log(regreplaceText);
+					}
+	
+					var data = { title: tmptitle, text: regreplaceText, contentEnable: tmpcheckstatusvalue };
+					// updatePost(data, tmppostid);
+				} else {
+					console.log("not here")
+				}
 
-			if(tmpCheckStatus !== null) {
-				var data = { title: title, text: regreplaceText, contentEnable: checkedstatus };
-				updatePost(data, postId);
-				
-			} else {
-				var data2 = { title: title, text: regreplaceText};	
-				updatePost(data2, postId);
 			}
 		})
 	}
@@ -112,48 +117,51 @@ export default function EditBlog() {
 	return (
 		<>
 			<h1 style={blogheader}>Edit Blog</h1>
-			{blogDetails.map((value) =>
-				<form id="blog" style={blogcontainer} post-id={(value["id"])} post-title={value["title"]} onSubmit={updateblog}>
-					<textarea
-						id="title"
-						className="title"
-						contentEditable="true"
-						suppressContentEditableWarning={true}
-						placeholder="text"
-						style={{
-							textAlign:"center",
-							textTransform:"capitalize"
-							}}
-						onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => {setTmpTitle(e.target.value)}}
-						>
-							{value["title"]}
-					</textarea>
-					<label>
-						<input type="checkbox" id="checkbox" onChange={(e: React.ChangeEvent<HTMLInputElement>) => {setTmpCheckStatus(e.target.checked)}} defaultChecked={value["contentEnable"]}/>
-						Enable Content
-					</label>
-					<p>Posted: {convertdate(value["timestamp"]["_seconds"])}</p>
-					{value["revision"] !== null ? <p>Revision: {convertdate(value["revision"]["_seconds"])}</p> : ""}
-					<p>Post Id: {(value["id"])}</p>
-					<textarea
-						style={{
-							height:"10em"
-							}}
-						contentEditable={true}
-						suppressContentEditableWarning={true}
-						name="paragraph_text"
-						id="text"
-						className="text"
-						placeholder="text"
-						onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => {setTmpText(e.target.value)}}>{convertNewlineChar(value["text"])}
-					</textarea>
-					<input type="submit" value="Update" id={value["id"]} onClick={() => setSubmitButton('updateblogentry')} name="updateblogentry"/>
-					<input type="submit" value="Delete" id={value["id"]} onClick={() => setSubmitButton('deleteblogentry')} name="deleteblogentry"/>
-				</form>
-			)}
-			<div style={blogcontainer}>
-				<button onClick={updateAll}>Update All</button>
-			</div>
+			<form onSubmit={updateAll}>
+				{blogDetails.map((value) =>
+					<form id="blog" style={blogcontainer} post-id={(value["id"])} post-title={value["title"]} onSubmit={updateblog}>
+						<textarea
+							id="title"
+							className="title"
+							contentEditable="true"
+							suppressContentEditableWarning={true}
+							placeholder="text"
+							style={{
+								textAlign:"center",
+								textTransform:"capitalize"
+								}}
+							onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => {setTmpTitle(e.target.value)}}
+							>
+								{value["title"]}
+						</textarea>
+						<label>
+							<input type="checkbox" id="checkbox" onChange={(e: React.ChangeEvent<HTMLInputElement>) => {setTmpCheckStatus(e.target.checked)}} defaultChecked={value["contentEnable"]}/>
+							Enable Content
+						</label>
+						<p>Posted: {convertdate(value["timestamp"]["_seconds"])}</p>
+						{value["revision"] !== null ? <p>Revision: {convertdate(value["revision"]["_seconds"])}</p> : ""}
+						<input id="postvalue" contentEditable="false" value={(value["id"])}/>
+						<textarea
+							style={{
+								height:"10em"
+								}}
+							contentEditable={true}
+							suppressContentEditableWarning={true}
+							name="paragraph_text"
+							id="text"
+							className="text"
+							placeholder="text"
+							onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => {setTmpText(e.target.value)}}>{convertNewlineChar(value["text"])}
+						</textarea>
+						<input type="submit" value="Update" id={value["id"]} onClick={() => setSubmitButton('updateblogentry')} name="updateblogentry"/>
+						<input type="submit" value="Delete" id={value["id"]} onClick={() => setSubmitButton('deleteblogentry')} name="deleteblogentry"/>
+					</form>
+				)}
+				<div style={blogcontainer}>
+					<input type="submit" value="Update All" onClick={() => setSubmitButton('updateall')} name="updateall"/>
+				</div>
+			</form>
+
 		</>
 	)
 

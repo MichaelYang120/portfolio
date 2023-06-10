@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { deletePost, getBlogDetails, updatePost } from "../Api/ApiRequest";
 import { convertNewlineChar, convertdate } from "../Includes/Functions";
+import Admin from "../Screens/Admin";
 
 export default function EditBlog() {
 	const [blogDetails, setBlogDetails] = useState([]);
@@ -175,6 +176,7 @@ export default function EditBlog() {
 					<input type="submit" value="Delete" id={value["id"]} onClick={() => setSubmitButton('deleteblogentry')} name="deleteblogentry"/>
 				</form>
 				)}
+				<Admin />
 		</>
 	)
 

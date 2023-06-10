@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getBlogDetails } from "../Api/ApiRequest";
 import { convertNewlineChar, convertdate } from "../Includes/Functions";
+import Admin from "../Screens/Admin";
 
 export default function Blog() {
 	const [blogDetails, setBlogDetails] = useState([]);
@@ -49,6 +50,7 @@ export default function Blog() {
 			</div>
 			: ""
 		)}
+		<Admin />
 		</>
 	)
 

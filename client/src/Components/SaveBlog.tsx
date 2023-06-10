@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Admin from "../Screens/Admin";
 
 export default function SaveBlog() {
 	// mid end file that allows you to save your blog updates to firebase cloud
@@ -104,6 +105,7 @@ export default function SaveBlog() {
 						<input style={blogsubmitbtn} type="submit" id="textsubmit" placeholder="Submit"/>
 					</form>
 				</div>
+				<Admin/>
 			</>
 		)
 

@@ -21,6 +21,8 @@ export async function updatePost(data:any, postId:string|null) {
             headers: {
                 "Content-Type": "application/json",
             },
+            // manual input for debugging purpose
+            // body: JSON.stringify({ title: "t", text: "regreplaceText", contentEnable: false }),
             body: JSON.stringify(data),
         });
       console.log(JSON.stringify(data))

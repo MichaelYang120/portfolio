@@ -1,4 +1,4 @@
-import React, { useState, useEffect, HtmlHTMLAttributes } from "react";
+import React, { useState, useEffect } from "react";
 import { deletePost, getBlogDetails, updatePost } from "../Api/ApiRequest";
 import { convertNewlineChar, convertdate } from "../Includes/Functions";
 
@@ -20,14 +20,32 @@ export default function EditBlog() {
 
 	const debug = false;
 
+	const clearState = () => {
+		if(typeof(tmpText) !== "undefined" && tmpText !== "") {
+			setTmpText("");
+
+		}
+		if(typeof(tmpTitle) !== "undefined" && tmpTitle !== "") {
+			setTmpTitle("");
+		}
+		if(typeof(tmpCheckStatus) !== "undefined") {
+			// console.log(tmpCheckStatus)
+			setTmpCheckStatus(Boolean(null))
+			// console.log(tmpCheckStatus)
+		}
+	}
+
 	// update post //delete post //update all
 	const updateblog = (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
 		console.log(submitButton)
+		// const statusvalue = tmpCheckStatus.valueOf();
+		// statusvalue.stringof()
 		var postId = event.currentTarget.getAttribute("post-id");
 		if(debug) {
 			console.log(tmpTitle)
 			console.log(tmpText)
+			console.log(tmpCheckStatus)
 
 		}
 		if(tmpTitle === null) {
@@ -44,14 +62,16 @@ export default function EditBlog() {
 				console.log(regreplaceText);
 			}
 
-			if(tmpCheckStatus !== null) {
-				var data = { title: postTitle, text: regreplaceText, contentEnable: tmpCheckStatus };
-				updatePost(data, postId);
+			console.log(tmpCheckStatus)
+			// if(tmpCheckStatus !== null) {
+			var data = { title: postTitle, text: regreplaceText, contentEnable: tmpCheckStatus };
+			updatePost(data, postId);
+			clearState();
 				
-			} else {
-				var data2 = { title: postTitle, text: regreplaceText};	
-				updatePost(data2, postId);
-			}
+			// } else {
+			// 	var data2 = { title: postTitle, text: regreplaceText};	
+			// 	updatePost(data2, postId);
+			// }
 		}
 
 		if(submitButton === "deleteblogentry") {
@@ -60,36 +80,36 @@ export default function EditBlog() {
 
 	}
 
-	const updateAll = (event: React.FormEvent<HTMLFormElement>) => {
-		event.preventDefault();
-		const blog = event.target;
-		const blogChildNodes = (blog as HTMLInputElement).childNodes
-		console.log(blogChildNodes)
+	// const updateAll = (event: React.FormEvent<HTMLFormElement>) => {
+	// 	event.preventDefault();
+	// 	const blog = event.target;
+	// 	const blogChildNodes = (blog as HTMLInputElement).childNodes
+	// 	console.log(blogChildNodes)
 
-		blogChildNodes.forEach(Element => {
-			var target:any = ((Element as HTMLFormElement).elements);
-			if(typeof(target != "undefined")) {
-				console.log(target)
-				if(typeof(target.postvalue.value) !== "undefined" || target.postvalue.value !== null) {
-					const tmppostid = target.postvalue.value;
-					const tmptitle = target.title.value;
-					const tmptext = target.text.value;
-					const tmpcheckstatusvalue = target.checkbox.checked;
+	// 	blogChildNodes.forEach(Element => {
+	// 		var target:any = ((Element as HTMLFormElement).elements);
+	// 		if(typeof(target != "undefined")) {
+	// 			console.log(target)
+	// 			const tmppostid = target.postvalue.value;
+	// 			if(typeof(tmppostid) !== "undefined" || tmppostid !== null) {
+	// 				const tmptitle = target.title.value;
+	// 				const tmptext = target.text.value;
+	// 				const tmpcheckstatusvalue:boolean = target.checkbox.checked;
 	
-					const regreplaceText = tmptext?.replace(/(\r\n|\n|\r)/gm, "--n");
-					if(debug) {
-						// console.log(regreplaceText);
-					}
+	// 				const regreplaceText = tmptext?.replace(/(\r\n|\n|\r)/gm, "--n");
+	// 				if(debug) {
+	// 					// console.log(regreplaceText);
+	// 				}
 	
-					var data = { title: tmptitle, text: regreplaceText, contentEnable: tmpcheckstatusvalue };
-					// updatePost(data, tmppostid);
-				} else {
-					console.log("not here")
-				}
+	// 				var data = { title: tmptitle, text: regreplaceText, contentEnable: tmpcheckstatusvalue };
+	// 				updatePost(data, tmppostid);
+	// 			} else {
+	// 				console.log("not here")
+	// 			}
 
-			}
-		})
-	}
+	// 		}
+	// 	})
+	// }
 
 	// styles
 	const blogcontainer = {
@@ -117,7 +137,7 @@ export default function EditBlog() {
 	return (
 		<>
 			<h1 style={blogheader}>Edit Blog</h1>
-			<form onSubmit={updateAll}>
+			{/* <form onSubmit={updateblog}> */}
 				{blogDetails.map((value) =>
 					<form id="blog" style={blogcontainer} post-id={(value["id"])} post-title={value["title"]} onSubmit={updateblog}>
 						<textarea
@@ -135,11 +155,11 @@ export default function EditBlog() {
 								{value["title"]}
 						</textarea>
 						<label>
-							<input type="checkbox" id="checkbox" onChange={(e: React.ChangeEvent<HTMLInputElement>) => {setTmpCheckStatus(e.target.checked)}} defaultChecked={value["contentEnable"]}/>
+							<input type="checkbox" id="checkbox" onChange={(e: React.ChangeEvent<HTMLInputElement>) => {setTmpCheckStatus(e.target.checked)}} defaultChecked={(value["contentEnable"])}/>
 							Enable Content
 						</label>
 						<p>Posted: {convertdate(value["timestamp"]["_seconds"])}</p>
-						{value["revision"] !== null ? <p>Revision: {convertdate(value["revision"]["_seconds"])}</p> : ""}
+						{typeof(value["revision"]) !== "undefined" ? <p>Revision: {convertdate(value["revision"]["_seconds"])}</p> : ""}
 						<input id="postvalue" contentEditable="false" value={(value["id"])}/>
 						<textarea
 							style={{
@@ -157,10 +177,10 @@ export default function EditBlog() {
 						<input type="submit" value="Delete" id={value["id"]} onClick={() => setSubmitButton('deleteblogentry')} name="deleteblogentry"/>
 					</form>
 				)}
-				<div style={blogcontainer}>
+				{/* <div style={blogcontainer}>
 					<input type="submit" value="Update All" onClick={() => setSubmitButton('updateall')} name="updateall"/>
-				</div>
-			</form>
+				</div> */}
+			{/* </form> */}
 
 		</>
 	)

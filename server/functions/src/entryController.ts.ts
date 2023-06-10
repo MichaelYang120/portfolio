@@ -62,7 +62,9 @@ const updateEntry = async (req: Request, res: Response) => {
       revision: new Date,
       title: title || currentData.title,
       text: text || currentData.text,
-      contentEnable: contentEnable || currentData.contentEnable,
+      // add to change boolean values, orginal below.
+      // contentEnable: contentEnable || currentData.contentEnable,
+      contentEnable: contentEnable,
     };
 
     await entry.set(entryObject).catch((error) => {

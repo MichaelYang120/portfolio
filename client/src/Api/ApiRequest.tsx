@@ -1,5 +1,3 @@
-import React, { Component } from 'react'
-
 export async function getBlogDetails() {
     let url = "https://us-central1-portfolio-f4982.cloudfunctions.net/app/entries"
     let response = await fetch(url, {

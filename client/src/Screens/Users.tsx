@@ -1,4 +1,3 @@
-import React from 'react';
 import '../App.css';
 import Footer from '../Components/Footer';
 import {ParallaxScroll} from '../Components/ParallaxScroll';

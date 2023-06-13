@@ -1,4 +1,3 @@
-import React from "react";
 import lights from "../Assets/jeshoots-com-pUAM5hPaCRI-unsplash.jpg"
 
 let infotextexample = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta suscipit cupiditate animi minus expedita, commodi doloribus voluptas beatae ab incidunt earum consequatur non maiores, reiciendis iste voluptatum quidem unde laboriosam officia quas quasi. Maiores sunt velit iure accusamus accusantium deserunt adipisci necessitatibus ipsa nulla nisi rem pariatur, facilis debitis vel!"

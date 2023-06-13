@@ -1,4 +1,3 @@
-import React from "react";
 import { faGithub, faBitbucket, faHtml5, faCss3Alt } from '@fortawesome/free-brands-svg-icons'
 import { Icons, jqueryIcon, mysqlIcon, phpIcon, reactIcon, typescriptIcon, javascriptIcon } from "./Icons";
   

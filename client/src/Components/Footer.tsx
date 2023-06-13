@@ -1,4 +1,3 @@
-import React from "react";
 import { linkedinIcon, githubIcon, emailIcon } from "./Icons";
 
 export default function Footer() {

@@ -1,5 +1,3 @@
-import React from "react";
-
 export function ParallaxScroll(imageurl:any, titletext:string|Array<string>, vhsetting="100vh") {
 
 	const backgroundimagestyle = {

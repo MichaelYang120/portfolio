@@ -1,6 +1,3 @@
-import React from "react";
-
-// export default function ContentText() {
 export default function ContentText(infotext:Array<string|object>) {
 
 	return (

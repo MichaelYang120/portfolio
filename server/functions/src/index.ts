@@ -42,10 +42,10 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-app.get("/", (req, res) => res.status(200).send("Silence is Golden"));
-app.post("/entries", addEntry);
-app.get("/entries", getAllEntries);
-app.patch("/entries/:entryId", updateEntry);
-app.delete("/entries/:entryId", deleteEntry);
+//app.get("/", (req, res) => res.status(200).send("Silence is Golden"));
+//app.post("/entries", addEntry);
+//app.get("/entries", getAllEntries);
+//app.patch("/entries/:entryId", updateEntry);
+//app.delete("/entries/:entryId", deleteEntry);
 
 exports.app = functions.https.onRequest(app);
